@@ -1,16 +1,16 @@
 import { useState } from 'react'
-import logo from './logo.svg'
-import Button from '@mui/material/Button';
 import NavBar from '../Navbar/Navbar';
+import Container from '@mui/material/Container';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-     <NavBar></NavBar>
-    </div>
+    <>
+     <NavBar/>
+     <Container maxWidth={false} sx={{backgroundColor: "gold", flexGrow: 1}}>my container</Container>
+     {/* can use flex-grow with components */}
+    </>
   )
 }
 
