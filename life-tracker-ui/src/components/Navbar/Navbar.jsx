@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from "react-router-dom";
 import  './Navbar.css'
 
-export function NavBar() {
+function NavBar() {
   return (
     <Box>
       <AppBar position="static">

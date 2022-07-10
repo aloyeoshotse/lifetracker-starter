@@ -1,7 +1,7 @@
 import * as React from "react"
 import './Login.css'
 
-export function Login() {
+function Login() {
     return(
         <div className="login">
             Login
