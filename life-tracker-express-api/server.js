@@ -3,10 +3,11 @@ import cors from 'cors';
 import morgan from 'morgan';
 import authRoutes from "./routes/auth.js"
 import { NotFoundError } from './utils/errors.js';
+import PORT from './config.js'
 
 
 const app = express();
-const port = 3001;
+// const port = 3001;
 
 app.use(morgan('tiny'));
 app.use(cors());
@@ -32,6 +33,6 @@ app.use((err,req,res,next) => {
   })
 })
 
-app.listen(port, () => {
-  console.log(`🚀 Server listening at http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`🚀 Server listening at http://localhost:${PORT}`)
 })
