@@ -1,15 +1,27 @@
 import express from "express"
-
 const router = express.Router();
 
-// Home page route.
-router.get('/',  (req, res) => {
-  res.json('Wiki home page');
+router.post('/login', async(req,res, next) => {
+  try{
+      //take email and passwords and attempt to authenticate
+      const user = await User.login(req.body);
+      return res.status(200).json({ user });
+  }
+  catch(err) {
+      next(err)
+  }
 })
 
-// About page route.
-router.get('/about', (req, res) => {
-  res.json('About this wiki');
+router.post('/register', async(req,res, next) => {
+  try{
+      /*take user email, password, rsvp status, and number of guests 
+          and creat a new user in database */
+      const user = await User.register(req.body);
+      return res.status(201).json({ user });
+  }
+  catch(err) {
+      next(err)
+  }
 })
 
 export default router;
