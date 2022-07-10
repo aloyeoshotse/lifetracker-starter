@@ -43,9 +43,6 @@ function Login() {
       };
     
     return(
-        // <div className="login">
-        //     Login
-        // </div>
         <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
@@ -57,7 +54,7 @@ function Login() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}> 
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -68,10 +65,10 @@ function Login() {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="username"
+                label="Username"
+                name="username"
+                autoComplete="username"
                 autoFocus
               />
               <TextField
