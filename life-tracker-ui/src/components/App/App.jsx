@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import ReactDOM from "react-dom/client";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
+import Register from "../Register/Register"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 
@@ -18,7 +19,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/login' element={<Login />}/>
-            <Route path='/register'/>
+            <Route path='/register' element={<Register />}/>
           </Routes>
         }
       </Container>
