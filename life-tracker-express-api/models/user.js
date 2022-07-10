@@ -1,9 +1,13 @@
-const db = require('../db')
-const { BCRYPT_WORK_FACTOR } = require('../config')
-const bcrypt = require('bcrypt');
-const {UnauthorizedError, BadRequestError} = require('../utils/errors');
+// const db = require('../db')
+// const { BCRYPT_WORK_FACTOR } = require('../config')
+// const bcrypt = require('bcrypt');
+// const {UnauthorizedError, BadRequestError} = require('../utils/errors');
 
-class User {
+import {UnauthorizedError, BadRequestError} from '../utils/errors.js'
+import bcrypt from 'bcrypt';
+// import db from '../db';
+
+export class User {
 
     static async makePublicUser(user) {
         return {
@@ -100,5 +104,3 @@ class User {
         return user
     }
 }
-
-module.exports = User;
