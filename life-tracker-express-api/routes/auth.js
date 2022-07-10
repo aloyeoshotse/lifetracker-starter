@@ -3,6 +3,15 @@ import { User } from '../models/user.js';
 
 const router = express.Router()
 
+router.get('/', async(req,res,next) => {
+    try{
+        res.status(200).json('auth route works')
+    }
+    catch (err) {
+        next(error)
+    }
+})
+
 router.post('/login', async(req,res, next) => {
     try{
         //take email and passwords and attempt to authenticate
