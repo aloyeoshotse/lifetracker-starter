@@ -1,5 +1,28 @@
 {
+  "name": "life-tracker-express-api",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aloyeoshotse/lifetracker-starter.git"
+  },
+  "author": "Aloye Oshotse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aloyeoshotse/lifetracker-starter/issues"
+  },
+  "homepage": "https://github.com/aloyeoshotse/lifetracker-starter#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.19"
   }
+  
 }
