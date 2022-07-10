@@ -1,0 +1,14 @@
+#logo {
+    width: 5%;
+    height: auto;
+    margin-left: 5cm;
+}
+
+.links {
+    width: 50%;
+}
+
+.links .auth {
+    margin-left: auto; 
+    margin-right: 0;
+}
