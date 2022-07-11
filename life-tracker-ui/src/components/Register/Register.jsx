@@ -1,5 +1,5 @@
-import * as React from "react"
-import './Register.css'
+import * as React from "react";
+import { useState } from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,6 +13,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useEffect } from "react";
+import axios from 'axios';
+import './Register.css';
 
 
 function Copyright(props) {
@@ -31,21 +34,59 @@ function Copyright(props) {
   const theme = createTheme();
 
 
-function Register() {
+function Register({error, setError}) {
+  
+    const [registerForm, setRegisterForm] = useState({
+                                                        firstName: "",
+                                                        lastName: "",
+                                                        email: "",
+                                                        password: ""
+                                                      });
+
+
+    const handleRegisterChange = (change) => {
+        if (registerForm) {
+          let newObj = registerForm;
+          let property = change.target.name;
+          let value = change.target.value;
+          let pair = {[property] : value}
+          newObj = {...newObj, ...pair}
+          setRegisterForm(newObj)
+        }
+    }
+
+    useEffect(() => {
+      console.log(registerForm)
+    }, [registerForm])
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-          email: data.get('email'),
-          password: data.get('password'),
-        });
+        // const data = new FormData(event.currentTarget);
+        // console.log({
+        //   name: data.get('firstName'),
+        //   email: data.get('email'),
+        //   password: data.get('password'),
+        // });
+        
+        const url = 'http://localhost:3001/auth/register'
+
+        axios.post(url, registerForm)
+          .then((res) => {
+            console.log(res.data);
+            setRegisterForm({
+              firstName: "",
+              lastName: "",
+              email: "",
+              password: ""
+            });
+          })
+          .catch((err) => {
+            setError(err);
+            console.log(error);
+          })
       };
 
     return(
-        // <div className="register">
-        //     Register
-        // </div>
         <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <CssBaseline />
@@ -74,6 +115,7 @@ function Register() {
                     id="firstName"
                     label="First Name"
                     autoFocus
+                    onChange={handleRegisterChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -84,6 +126,7 @@ function Register() {
                     label="Last Name"
                     name="lastName"
                     autoComplete="family-name"
+                    onChange={handleRegisterChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -94,6 +137,7 @@ function Register() {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    onChange={handleRegisterChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -105,17 +149,19 @@ function Register() {
                     type="password"
                     id="password"
                     autoComplete="new-password"
+                    onChange={handleRegisterChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
                     required
                     fullWidth
-                    name="password"
+                    name="confirm-password"
                     label="Confirm Password"
                     type="password"
-                    id="password"
-                    autoComplete="new-password"
+                    id="confirm-password"
+                    autoComplete="confirm-new-password"
+                    //add function to check that this password and the other is the same
                   />
                 </Grid>
                 <Grid item xs={12}>

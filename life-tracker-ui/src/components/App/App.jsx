@@ -11,6 +11,8 @@ import './App.css'
 
 function App() {
 
+  const [error, setError] = useState("");
+
   return (
     <BrowserRouter>
       <NavBar />
@@ -19,7 +21,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/login' element={<Login />}/>
-            <Route path='/register' element={<Register />}/>
+            <Route path='/register' element={<Register error={error} setError= {setError} />}/>
           </Routes>
         }
       </Container>
