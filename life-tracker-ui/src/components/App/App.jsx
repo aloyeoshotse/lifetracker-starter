@@ -9,9 +9,19 @@ import Register from "../Register/Register"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 
+
 function App() {
 
   const [error, setError] = useState("");
+  
+
+  function isFormInvalid(object) {
+    for (var prop in object) {
+      if (object[prop].length < 1) {return true}
+    }
+
+    return false;
+  }
 
   return (
     <BrowserRouter>
@@ -21,7 +31,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/login' element={<Login />}/>
-            <Route path='/register' element={<Register error={error} setError= {setError} />}/>
+            <Route path='/register' element={<Register error={error} setError={setError} invalidForm={isFormInvalid} />}/>
           </Routes>
         }
       </Container>
