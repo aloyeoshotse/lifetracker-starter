@@ -30,7 +30,7 @@ function App() {
         {
           <Routes>
             <Route path='/' element={<Home />}/>
-            <Route path='/login' element={<Login />}/>
+            <Route path='/login' element={<Login error={error} setError={setError} invalidForm={isFormInvalid} />}/>
             <Route path='/register' element={<Register error={error} setError={setError} invalidForm={isFormInvalid} />}/>
           </Routes>
         }

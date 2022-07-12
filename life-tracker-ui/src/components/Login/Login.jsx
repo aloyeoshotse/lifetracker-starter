@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState } from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -31,15 +32,50 @@ function Copyright(props) {
   const theme = createTheme();
 
 
-function Login() {
+function Login({error, setError, invalidForm}) {
+
+    const [loginForm, setLoginForm] = useState({
+                                                email: "",
+                                                password: ""
+                                              })
+
+
+    var invalid = invalidForm(loginForm);
+
+
+
+    const handleLoginFieldChange = (change) => {
+        if (loginForm) {
+
+          let newObj = loginForm;
+          let property = change.target.name;
+          let value = change.target.value;
+          let pair = {[property] : value}
+          newObj = {...newObj, ...pair}
+          setLoginForm(newObj)
+        
+        }
+    }
+  
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-          email: data.get('email'),
-          password: data.get('password'),
-        });
+
+        const url = 'http://localhost:3001/auth/login'
+
+        axios.post(url, loginForm)
+        .then((res) => {
+          console.log(res.data);
+          setLoginForm({
+            email: "",
+            password: ""
+          });
+          event.target.reset();
+        })
+        .catch((err) => {
+          setError(err);
+          console.log(error);
+        })
       };
     
     return(
@@ -70,6 +106,7 @@ function Login() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={handleLoginFieldChange}
               />
               <TextField
                 margin="normal"
@@ -80,6 +117,7 @@ function Login() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={handleLoginFieldChange}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -90,6 +128,7 @@ function Login() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                disabled = {invalid}
               >
                 Sign In
               </Button>
