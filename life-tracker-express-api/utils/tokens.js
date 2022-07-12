@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { SECRET_KEY } from "../config"
+import { SECRET_KEY } from "../config.js"
 
 export const generateToken = (data) => jwt.sign(data, SECRET_KEY, { expiresIn: "1h" })
 
