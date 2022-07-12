@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
 import './Login.css'
 
 
@@ -73,8 +74,7 @@ function Login({error, setError, invalidForm}) {
           event.target.reset();
         })
         .catch((err) => {
-          setError(err);
-          console.log(error);
+          setError(err.response.data.message);
         })
       };
     
@@ -96,6 +96,7 @@ function Login({error, setError, invalidForm}) {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
+            {error ? <p style={{color: "red", fontWeight: "bold", textAlign: "center"}}>{error}</p> : <></>}
             <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
