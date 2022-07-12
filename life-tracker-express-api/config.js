@@ -3,7 +3,10 @@ import colors from 'colors'
 
 dotenv.config();
 
-const PORT =  process.env.port ? Number(process.env.port) : 3001
+export const PORT =  process.env.PORT ? Number(process.env.PORT) : 3001
+
+export const SECRET_KEY = process.env.SECRET_KEY || 'secret_dev'
+
 
 export function getDatabaseURI() {
     const dbUser = process.env.DATABASE_USER || 'postgres'
@@ -19,7 +22,6 @@ export function getDatabaseURI() {
 // console.log("process.env".yellow, Object.keys(process.env))
 console.log("LifeTracker Config:".red)
 console.log("PORT:".blue, PORT)
+console.log("SECRET_KEY:".blue, SECRET_KEY)
 console.log("Database URI:".blue, getDatabaseURI())
 console.log('---')
-
-export default PORT

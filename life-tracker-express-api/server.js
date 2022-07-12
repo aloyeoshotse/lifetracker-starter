@@ -3,7 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import authRoutes from "./routes/auth.js"
 import { NotFoundError } from './utils/errors.js';
-import PORT from './config.js'
+import { PORT } from './config.js'
 
 
 const app = express();
