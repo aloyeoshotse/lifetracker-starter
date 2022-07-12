@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import authRoutes from "./routes/auth.js"
 import { NotFoundError } from './utils/errors.js';
 import { PORT } from './config.js'
+import {extractUserFromJwt} from "./middleware/security.js"
 
 
 const app = express();
@@ -12,6 +13,11 @@ const app = express();
 app.use(morgan('tiny'));
 app.use(cors());
 app.use(express.json());
+
+
+app.use(extractUserFromJwt)
+
+
 app.use("/auth", authRoutes);
 
 
