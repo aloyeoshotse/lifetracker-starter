@@ -1,4 +1,3 @@
-// import { Client } from 'pg';
 import pkg from 'pg';
 import { getDatabaseURI } from './config.js';
 import colors from 'colors';
