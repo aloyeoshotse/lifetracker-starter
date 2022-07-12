@@ -47,7 +47,7 @@ export class User {
            if one does, throw an error */
         const existingUser = await User.fetchUserByEmail(credentials.email)
         if (existingUser) {
-            throw new BadRequestError(`Duplicate email: ${credentials.email}`)
+            throw new BadRequestError(`Duplicate email: ${credentials.email}. Please proceed to login page.`)
         }
 
         /*take the user's password, and hash it

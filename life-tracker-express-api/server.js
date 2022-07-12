@@ -16,7 +16,7 @@ app.use("/auth", authRoutes);
 
 
 app.get('/', (req, res) => {
-  res.send('main route works!')
+  res.json('main LifeTracker backend route works!')
 })
 
 //error handling

@@ -76,17 +76,9 @@ function Register({error, setError, invalidForm}) {
             }
           }
 
-          console.log(invalid)
-
         }
     }
 
-    useEffect(() => {
-      console.log(registerForm)
-      console.log("invalidForm = ", invalid)
-      console.log("Same pw = ", samePassword)
-      console.log('confirm = ', confirmPw)
-    }, [registerForm])
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -105,8 +97,7 @@ function Register({error, setError, invalidForm}) {
           event.target.reset();
         })
         .catch((err) => {
-          setError(err);
-          console.log(error);
+          setError(err.response.data.message);
         })
       };
 
@@ -128,6 +119,7 @@ function Register({error, setError, invalidForm}) {
             <Typography component="h1" variant="h5">
               Sign up
             </Typography>
+            {error ? <p style={{color: "red", fontWeight: "bold", textAlign: "center"}}>{error}</p> : <></>}
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
