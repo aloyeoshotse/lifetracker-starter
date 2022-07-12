@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 import './Login.css'
 
 
@@ -39,8 +40,7 @@ function Login({error, setError, invalidForm}) {
                                                 email: "",
                                                 password: ""
                                               })
-
-
+    const navigate = useNavigate();
     var invalid = invalidForm(loginForm);
 
 
@@ -72,6 +72,7 @@ function Login({error, setError, invalidForm}) {
             password: ""
           });
           event.target.reset();
+          navigate('/profile');
         })
         .catch((err) => {
           setError(err.response.data.message);

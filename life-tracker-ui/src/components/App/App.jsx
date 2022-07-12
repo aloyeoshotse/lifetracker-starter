@@ -6,6 +6,7 @@ import ReactDOM from "react-dom/client";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Register from "../Register/Register"
+import Profile from "../Profile/Profile"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 
@@ -32,6 +33,7 @@ function App() {
             <Route path='/' element={<Home />}/>
             <Route path='/login' element={<Login error={error} setError={setError} invalidForm={isFormInvalid} />}/>
             <Route path='/register' element={<Register error={error} setError={setError} invalidForm={isFormInvalid} />}/>
+            <Route path='/profile' element={<Profile/> } />
           </Routes>
         }
       </Container>

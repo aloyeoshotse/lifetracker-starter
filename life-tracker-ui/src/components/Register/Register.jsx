@@ -15,6 +15,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useEffect } from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 import './Register.css';
 
 
@@ -42,7 +43,7 @@ function Register({error, setError, invalidForm}) {
                                                         email: "",
                                                         password: "",
                                                       });
-
+    const navigate = useNavigate()
     const [samePassword, setSamePassword] = useState(false);
     const [confirmPw, setConfirmPw] = useState()
 
@@ -95,6 +96,7 @@ function Register({error, setError, invalidForm}) {
             password: ""
           });
           event.target.reset();
+          navigate('/profile');
         })
         .catch((err) => {
           setError(err.response.data.message);
