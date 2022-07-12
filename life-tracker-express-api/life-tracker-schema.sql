@@ -6,3 +6,28 @@ CREATE TABLE users (
     password        TEXT NOT NULL,
     created_at      TIMESTAMP NOT NULL DEFAULT NOW()   
 );
+
+CREATE TABLE exercises (
+    id              SERIAL PRIMARY KEY,
+    name            TEXT NOT NULL, 
+    category        TEXT NOT NULL,
+    duration        INTEGER NOT NULL,
+    intensity       INTEGER NOT NULL,
+    created_at      TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE nutrition (
+    id              SERIAL PRIMARY KEY,
+    name            TEXT NOT NULL, 
+    category        TEXT NOT NULL,
+    quantity        INTEGER NOT NULL,
+    calories        INTEGER NOT NULL,
+    image_url       TEXT NOT NULL,
+    created_at      TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE sleep (
+    id              SERIAL PRIMARY KEY,
+    start_time      TIMESTAMP NOT NULL DEFAULT NOW(),
+    end_time        TIMESTAMP NOT NULL DEFAULT NOW()
+);
