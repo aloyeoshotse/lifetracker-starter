@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import authRoutes from "./routes/auth.js"
 import nutritionRoutes from './routes/nutrition.js'
+import exerciseRoutes from './routes/exercises.js'
 import { NotFoundError } from './utils/errors.js';
 import { PORT } from './config.js'
 import {extractUserFromJwt} from "./middleware/security.js"
@@ -21,6 +22,7 @@ app.use(extractUserFromJwt)
 
 app.use("/auth", authRoutes);
 app.use("/nutrition", nutritionRoutes)
+app.use("/exercises", exerciseRoutes)
 
 
 app.get('/', (req, res) => {
