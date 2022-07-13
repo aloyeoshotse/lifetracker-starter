@@ -35,41 +35,38 @@ function NavBar({ loggedIn, setLoggedIn }) {
             <img id="logo" src="/src/lifetracker-logo.png"/>
           </Link>
           </Typography>
-          <div className="buttons">
-            <Link to={'/activity'}>
-              <Button color="inherit"  sx={{ flexGrow: 1 }}>Activity</Button>
-            </Link>
-            <Button color="inherit" sx={{ flexGrow: 1 }}>Exercise</Button>
-            <Link to={'/nutrition'}>
-              <Button color="inherit" sx={{ flexGrow: 1 }}>Nutrition</Button>
-            </Link>
-            <Button color="inherit" sx={{ flexGrow: 1 }}>Sleep</Button>
-
+        
             { !loggedIn ? 
-                <>
+
+                <div className="buttons">
                   <Link to={'/login'}>
+                    <Button color="inherit"  sx={{ flexGrow: 1 }}>Activity</Button>
+                    <Button color="inherit" sx={{ flexGrow: 1 }}>Exercise</Button>
+                    <Button color="inherit" sx={{ flexGrow: 1 }}>Nutrition</Button>
+                    <Button color="inherit" sx={{ flexGrow: 1 }}>Sleep</Button>
                     <Button color="inherit" sx={{ flexGrow: 1 }}>Login</Button>
                   </Link>
-                 <Link to={'/register'}>
-                  <Button color="inherit" sx={{ flexGrow: 1 }}>Register</Button>
+                  <Link to={'/register'}>
+                    <Button color="inherit" sx={{ flexGrow: 1 }}>Register</Button>
                   </Link>
-                </>
+                </div>
+
+                :
+
+                <div className="buttons">
+                  <Link to={'/activity'}>
+                    <Button color="inherit"  sx={{ flexGrow: 1 }}>Activity</Button>
+                  </Link>
+                    <Button color="inherit" sx={{ flexGrow: 1 }}>Exercise</Button>
+                  <Link to={'/nutrition'}>
+                    <Button color="inherit" sx={{ flexGrow: 1 }}>Nutrition</Button>
+                  </Link>
+                  <Button color="inherit" sx={{ flexGrow: 1 }}>Sleep</Button>
+                  <Button color="inherit" sx={{ flexGrow: 1 }}>Sign Out</Button>
+                </div>
+
+            }
             
-              :  
-              <Button color="inherit" sx={{ flexGrow: 1 }}>Sign Out</Button>
-              }
-
-{/*             
-            <Link to={'/login'}>
-              <Button color="inherit" sx={{ flexGrow: 1 }}>Login</Button>
-            </Link>
-            <Link to={'/register'}>
-              <Button color="inherit" sx={{ flexGrow: 1 }}>Register</Button>
-            </Link> */}
-
-
-
-          </div>
         </Toolbar>
       </AppBar>
     </Box>
