@@ -3,9 +3,10 @@ CREATE TABLE users (
     first_name      TEXT NOT NULL,
     last_name       TEXT NOT NULL,
     email           TEXT NOT NULL UNIQUE CHECK (POSITION('@' IN EMAIL) > 1),
+    username        TEXT NOT NULL UNIQUE,
     password        TEXT NOT NULL,
-    is_admin        BOOLEAN NOT NULL DEFAULT FALSE
-    created_at      TIMESTAMP NOT NULL DEFAULT NOW()   
+    created_at      TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at      TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE exercises (
