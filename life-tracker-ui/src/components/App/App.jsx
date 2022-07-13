@@ -6,7 +6,7 @@ import ReactDOM from "react-dom/client";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Register from "../Register/Register"
-import Profile from "../Profile/Profile"
+import Activity from "../Activity/Activity"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 import NutritionPage from "../NutritionPage/NutritionPage";
@@ -40,7 +40,7 @@ function App() {
                                                 error={error} setError={setError} invalidForm={isFormInvalid} />}/>
             <Route path='/register' element={<Register loggedIn={loggedIn} setLoggedIn={setLoggedIn} 
                                                 error={error} setError={setError} invalidForm={isFormInvalid} />}/>
-            <Route path='/activity' element={<Profile/> } />
+            <Route path='/activity' element={<Activity/> } />
             <Route path='/nutrition' element={<NutritionPage/> } />
           </Routes>
         }

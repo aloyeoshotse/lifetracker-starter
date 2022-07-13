@@ -19,7 +19,7 @@ function NavBar({ loggedIn, setLoggedIn }) {
 
     event.preventDefault();
     localStorage.removeItem("life_tracker_token");
-    // setLoggedIn(false);
+    setLoggedIn(false);
     navigate('/');
     
   }
@@ -55,14 +55,14 @@ function NavBar({ loggedIn, setLoggedIn }) {
 
                 <div className="buttons">
                   <Link to={'/activity'}>
-                    <Button color="inherit"  sx={{ flexGrow: 1 }}>Activity</Button>
+                    <Button color="inherit">Activity</Button>
                   </Link>
-                    <Button color="inherit" sx={{ flexGrow: 1 }}>Exercise</Button>
+                    <Button color="inherit">Exercise</Button>
                   <Link to={'/nutrition'}>
-                    <Button color="inherit" sx={{ flexGrow: 1 }}>Nutrition</Button>
+                    <Button color="inherit">Nutrition</Button>
                   </Link>
-                  <Button color="inherit" sx={{ flexGrow: 1 }}>Sleep</Button>
-                  <Button color="inherit" sx={{ flexGrow: 1 }} onClick={handleLogout}>Sign Out</Button>
+                  <Button color="inherit">Sleep</Button>
+                  <Button color="inherit" onClick={handleLogout}>Sign Out</Button>
                 </div>
 
             }
