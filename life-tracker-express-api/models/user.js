@@ -10,6 +10,7 @@ export class User {
             firstName: user.first_name,
             lastName: user.last_name,
             email: user.email,
+            userName: user.username,
             createdAt: user.created_at
         }
     }
@@ -28,11 +29,25 @@ export class User {
         return user
     }
 
+    static async fetchUserByUsername(username) {
+        if (!username) {
+            throw new BadRequestError('No username provided.')
+        }
+
+        const query = `SELECT * FROM users WHERE username = $1`
+
+        const result = await db.query(query, [username])
+
+        const user = result.rows[0]
+
+        return user
+    }
+
 
     static async register(credentials) {
-        /* user should submit their first name, last name, email, and password
+        /* user should submit their first name, last name, email, username, and password
            if any of these fields are missing, throw an error */
-        const requiredFields = ['firstName', 'lastName', 'email', 'password']
+        const requiredFields = ['firstName', 'lastName', 'email', 'userName', 'password']
         requiredFields.forEach(field => {
             if (!credentials.hasOwnProperty(field)) {
                 throw new BadRequestError(`Missing ${field} in request body.`);
@@ -63,11 +78,12 @@ export class User {
             first_name,
             last_name,
             email,
+            username,
             password
         )
-        VALUES ($1, $2, $3, $4)
-        RETURNING id, first_name, last_name, email, password, created_at;
-        `, [credentials.firstName, credentials.lastName,lowercasedEmail, hashedPassword])
+        VALUES ($1, $2, $3, $4, $5)
+        RETURNING id, first_name, last_name, email, username, password, created_at;
+        `, [credentials.firstName, credentials.lastName,lowercasedEmail, credentials.userName, hashedPassword])
 
         const user = result.rows[0]
 
@@ -76,16 +92,16 @@ export class User {
 
 
     static async login(credentials) {
-        //user should submit their email and password
+        //user should submit their username and password
         //if any of these fields are missing, throw an error
-        const requiredFields = ['email', 'password'];
+        const requiredFields = ['userName', 'password'];
         requiredFields.forEach(field => {
             if (!credentials.hasOwnProperty(field)) {
                 throw new BadRequestError(`Missing ${field} in request body.`);
             }
         })
-        // lookup the user in the db by email
-        const user = await User.fetchUserByEmail(credentials.email)
+        // lookup the user in the db by username
+        const user = await User.fetchUserByUsername(credentials.userName)
         // if a user is found, compare the submitted password
         // with the password in the db
         // if there is a match, return the user
