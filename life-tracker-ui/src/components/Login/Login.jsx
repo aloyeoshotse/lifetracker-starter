@@ -35,7 +35,7 @@ function Copyright(props) {
   const theme = createTheme();
 
 
-function Login({error, setError, invalidForm}) {
+function Login({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
 
     const [loginForm, setLoginForm] = useState({
                                                 email: "",
@@ -82,6 +82,7 @@ function Login({error, setError, invalidForm}) {
             password: ""
           });
           event.target.reset();
+          setLoggedIn(true);
           navigate('/activity');
         })
         .catch((err) => {

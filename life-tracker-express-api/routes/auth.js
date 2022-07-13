@@ -44,4 +44,17 @@ router.post('/register', async(req,res, next) => {
     }
 })
 
+router.get('/me', requireAuthenticatedUser , async(req,res,next) => {
+    try {
+        const { email } = res.locals.user
+        const user = await User.fetchUserByEmail(email)
+        //function to list activity stuff
+        const publicUser = await User.makePublicUser(user)
+        return res.status(200).json({ user: publicUser})
+    }
+    catch(error) {
+        next(error)
+    }
+})
+
 export default router;

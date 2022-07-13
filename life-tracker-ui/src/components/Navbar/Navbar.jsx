@@ -7,10 +7,26 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import  './Navbar.css'
 
 function NavBar({ loggedIn, setLoggedIn }) {
+
+
+  const navigate = useNavigate();
+
+  const handleLogout = async (event) => {
+
+    event.preventDefault();
+    localStorage.removeItem('student_store_token');
+    setLoggedIn(false);
+    navigate('/');
+    
+  }
+
+
   return (
+    
     <Box>
       <AppBar position="static">
         <Toolbar>
@@ -20,18 +36,39 @@ function NavBar({ loggedIn, setLoggedIn }) {
           </Link>
           </Typography>
           <div className="buttons">
-            <Button color="inherit"  sx={{ flexGrow: 1 }}>Activity</Button>
+            <Link to={'/activity'}>
+              <Button color="inherit"  sx={{ flexGrow: 1 }}>Activity</Button>
+            </Link>
             <Button color="inherit" sx={{ flexGrow: 1 }}>Exercise</Button>
             <Link to={'/nutrition'}>
               <Button color="inherit" sx={{ flexGrow: 1 }}>Nutrition</Button>
             </Link>
             <Button color="inherit" sx={{ flexGrow: 1 }}>Sleep</Button>
+
+            { !loggedIn ? 
+                <>
+                  <Link to={'/login'}>
+                    <Button color="inherit" sx={{ flexGrow: 1 }}>Login</Button>
+                  </Link>
+                 <Link to={'/register'}>
+                  <Button color="inherit" sx={{ flexGrow: 1 }}>Register</Button>
+                  </Link>
+                </>
+            
+              :  
+              <Button color="inherit" sx={{ flexGrow: 1 }}>Sign Out</Button>
+              }
+
+{/*             
             <Link to={'/login'}>
               <Button color="inherit" sx={{ flexGrow: 1 }}>Login</Button>
             </Link>
             <Link to={'/register'}>
               <Button color="inherit" sx={{ flexGrow: 1 }}>Register</Button>
-            </Link>
+            </Link> */}
+
+
+
           </div>
         </Toolbar>
       </AppBar>

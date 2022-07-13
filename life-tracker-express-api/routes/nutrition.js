@@ -1,10 +1,14 @@
-import express from 'express';
+import express, { json } from 'express';
 import { User } from '../models/user.js';
 import { requireAuthenticatedUser } from "../middleware/security.js"
 
 const router = express.Router()
 
-router.get('/profile', requireAuthenticatedUser , async(req,res,next) => {
+router.get('/', (req,res,next) => {
+    res.status(200).json("nutrition route works")
+})
+
+router.post('/', requireAuthenticatedUser , async(req,res,next) => {
     try {
         const { email } = res.locals.user
         const user = await User.fetchUserByEmail(email)

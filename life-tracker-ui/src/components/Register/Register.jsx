@@ -35,7 +35,7 @@ function Copyright(props) {
   const theme = createTheme();
 
 
-function Register({error, setError, invalidForm}) {
+function Register({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
   
     const [registerForm, setRegisterForm] = useState({
                                                         firstName: "",
@@ -96,6 +96,7 @@ function Register({error, setError, invalidForm}) {
             password: ""
           });
           event.target.reset();
+          setLoggedIn(true);
           navigate('/activity');
         })
         .catch((err) => {

@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import authRoutes from "./routes/auth.js"
-import profileRoutes from "./routes/profile.js"
+import nutritionRoutes from './routes/nutrition.js'
 import { NotFoundError } from './utils/errors.js';
 import { PORT } from './config.js'
 import {extractUserFromJwt} from "./middleware/security.js"
@@ -20,7 +20,7 @@ app.use(extractUserFromJwt)
 
 
 app.use("/auth", authRoutes);
-app.use("/profile", profileRoutes)
+app.use("/nutrition", nutritionRoutes)
 
 
 app.get('/', (req, res) => {
