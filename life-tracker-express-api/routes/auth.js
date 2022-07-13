@@ -1,9 +1,20 @@
-import express from 'express';
+import express, { json } from 'express';
 import { User } from '../models/user.js';
 import { createUserJwt } from "../utils/tokens.js"
 import { requireAuthenticatedUser } from "../middleware/security.js"
 
 const router = express.Router()
+
+
+router.get('/', async(req,res, next) => {
+    try{
+       res.status(200).json("main auth route works")
+    }
+    catch(err) {
+        res.status(400).send(err)
+        next(err)
+    }
+})
 
 
 router.post('/login', async(req,res, next) => {

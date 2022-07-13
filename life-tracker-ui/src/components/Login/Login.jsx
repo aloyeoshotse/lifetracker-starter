@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
+// import apiClient from "../../services/apiClient";
 import { useNavigate } from "react-router-dom";
 import './Login.css'
 
@@ -59,10 +60,19 @@ function Login({error, setError, invalidForm}) {
     }
   
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
+        // setError((e) => ({...e, form: null}))
+
         const url = 'http://localhost:3001/auth/login'
+
+        // const { data, error } = await apiClient.loginUser({ email: loginForm.email, password: loginForm.password })
+        // if (error) { setError((e) => ({...e, form: null})) }
+        // if (data?.user) {
+        //   //setUser
+        //   apiClient.setToken(data.token)
+        // }
 
         axios.post(url, loginForm)
         .then((res) => {
@@ -72,7 +82,7 @@ function Login({error, setError, invalidForm}) {
             password: ""
           });
           event.target.reset();
-          navigate('/profile');
+          navigate('/activity');
         })
         .catch((err) => {
           setError(err.response.data.message);

@@ -9,11 +9,14 @@ import Register from "../Register/Register"
 import Profile from "../Profile/Profile"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
+import NutritionPage from "../NutritionPage/NutritionPage";
 
 
 function App() {
 
   const [error, setError] = useState("");
+  const [user, setUser] = useState();
+  const [loggedIn, setLoggedIn] = useState(false);
   
 
   function isFormInvalid(object) {
@@ -26,14 +29,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
       <Container maxWidth={false} sx={{backgroundColor: "gold", flexGrow: 1}}>
         {
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/login' element={<Login error={error} setError={setError} invalidForm={isFormInvalid} />}/>
             <Route path='/register' element={<Register error={error} setError={setError} invalidForm={isFormInvalid} />}/>
-            <Route path='/profile' element={<Profile/> } />
+            <Route path='/activity' element={<Profile/> } />
+            <Route path='/nutrition' element={<NutritionPage/> } />
           </Routes>
         }
       </Container>

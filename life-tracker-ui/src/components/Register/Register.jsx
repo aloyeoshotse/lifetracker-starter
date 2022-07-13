@@ -96,7 +96,7 @@ function Register({error, setError, invalidForm}) {
             password: ""
           });
           event.target.reset();
-          navigate('/profile');
+          navigate('/activity');
         })
         .catch((err) => {
           setError(err.response.data.message);
