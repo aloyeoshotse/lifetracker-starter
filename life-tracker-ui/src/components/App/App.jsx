@@ -15,7 +15,6 @@ import NutritionPage from "../NutritionPage/NutritionPage";
 function App() {
 
   const [error, setError] = useState("");
-  const [user, setUser] = useState();
   const [loggedIn, setLoggedIn] = useState(false);
   
 
