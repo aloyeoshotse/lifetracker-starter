@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
-// import apiClient from "../../services/apiClient";
+import apiClient from "../../services/apiClient";
 import { useNavigate } from "react-router-dom";
 import './Login.css'
 
@@ -63,31 +63,37 @@ function Login({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // setError((e) => ({...e, form: null}))
 
-        const url = 'http://localhost:3001/auth/login'
+        // const url = 'http://localhost:3001/auth/login'
 
-        // const { data, error } = await apiClient.loginUser({ email: loginForm.email, password: loginForm.password })
-        // if (error) { setError((e) => ({...e, form: null})) }
-        // if (data?.user) {
-        //   //setUser
-        //   apiClient.setToken(data.token)
-        // }
-
-        axios.post(url, loginForm)
-        .then((res) => {
-          console.log(res.data);
+        const { data, error } = await apiClient.loginUser({ email: loginForm.email, password: loginForm.password })
+        if (error) { setError((e) => ({...e, form: null})) }
+        if (data?.user) {
           setLoginForm({
-            email: "",
-            password: ""
-          });
+                email: "",
+                password: ""
+              });
+          apiClient.setToken(data.token)
           event.target.reset();
-          setLoggedIn(true);
+          // setLoggedIn(true);
+          //localStorage.setItem("loggedIn", true)
           navigate('/activity');
-        })
-        .catch((err) => {
-          setError(err.response.data.message);
-        })
+        }
+
+        // axios.post(url, loginForm)
+        // .then((res) => {
+        //   console.log(res.data);
+        //   setLoginForm({
+        //     email: "",
+        //     password: ""
+        //   });
+        //   event.target.reset();
+        //   setLoggedIn(true);
+        //   navigate('/activity');
+        // })
+        // .catch((err) => {
+        //   setError(err.response.data.message);
+        // })
       };
     
     return(

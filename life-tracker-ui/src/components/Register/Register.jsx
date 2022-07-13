@@ -97,7 +97,7 @@ function Register({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
             password: ""
           });
           event.target.reset();
-          setLoggedIn(true);
+          //setLoggedIn(true);
           navigate('/activity');
         })
         .catch((err) => {

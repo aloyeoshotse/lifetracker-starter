@@ -16,7 +16,10 @@ function App() {
 
   const [error, setError] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
-  
+
+  //localStorage.getItem(life_tracker_token)
+  // const item = localStorage.getItem("life_tracker_token")
+  // console.log("item =", item)
 
   function isFormInvalid(object) {
     for (var prop in object) {

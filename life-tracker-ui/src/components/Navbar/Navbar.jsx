@@ -18,8 +18,8 @@ function NavBar({ loggedIn, setLoggedIn }) {
   const handleLogout = async (event) => {
 
     event.preventDefault();
-    localStorage.removeItem('student_store_token');
-    setLoggedIn(false);
+    localStorage.removeItem("life_tracker_token");
+    // setLoggedIn(false);
     navigate('/');
     
   }
@@ -36,7 +36,7 @@ function NavBar({ loggedIn, setLoggedIn }) {
           </Link>
           </Typography>
         
-            { !loggedIn ? 
+            { !localStorage.getItem("life_tracker_token") ? 
 
                 <div className="buttons">
                   <Link to={'/login'}>
@@ -62,7 +62,7 @@ function NavBar({ loggedIn, setLoggedIn }) {
                     <Button color="inherit" sx={{ flexGrow: 1 }}>Nutrition</Button>
                   </Link>
                   <Button color="inherit" sx={{ flexGrow: 1 }}>Sleep</Button>
-                  <Button color="inherit" sx={{ flexGrow: 1 }}>Sign Out</Button>
+                  <Button color="inherit" sx={{ flexGrow: 1 }} onClick={handleLogout}>Sign Out</Button>
                 </div>
 
             }
