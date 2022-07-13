@@ -32,7 +32,7 @@ CREATE TABLE nutrition (
 
 CREATE TABLE sleep (
     id              SERIAL PRIMARY KEY,
-    username      TEXT NOT NULL REFERENCES users (username) ON DELETE CASCADE,
+    username        TEXT NOT NULL REFERENCES users (username) ON DELETE CASCADE,
     start_time      TIMESTAMP NOT NULL DEFAULT NOW(),
     end_time        TIMESTAMP NOT NULL DEFAULT NOW()
 );

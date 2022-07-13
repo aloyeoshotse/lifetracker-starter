@@ -41,6 +41,7 @@ function Register({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
                                                         firstName: "",
                                                         lastName: "",
                                                         email: "",
+                                                        userName: "",
                                                         password: "",
                                                       });
     const navigate = useNavigate()
@@ -156,6 +157,17 @@ function Register({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
                     label="Email Address"
                     name="email"
                     autoComplete="email"
+                    onChange={handleRegisterFieldChange}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="userName"
+                    label="User Name"
+                    name="userName"
+                    autoComplete="user-name"
                     onChange={handleRegisterFieldChange}
                   />
                 </Grid>

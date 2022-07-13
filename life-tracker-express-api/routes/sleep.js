@@ -1,15 +1,16 @@
-import express from "express";
-import { Exercises } from "../models/exercises.js";
+import express from 'express';
+import { Sleep } from '../models/sleep.js';
 import { requireAuthenticatedUser } from "../middleware/security.js"
 
 const router = express.Router()
 
+
 router.get('/', requireAuthenticatedUser, async (req,res,next) => {
     try {
         const user = res.locals.user
-        let exerciseList = await Exercises.listUserExerciseEntries(user);
+        let sleepList = await Sleep.listUserSleepEntries(user);
         return res.status(200).json({
-            exercises: exerciseList
+            sleep: sleepList
         })
     }
     catch(error) {
@@ -17,10 +18,11 @@ router.get('/', requireAuthenticatedUser, async (req,res,next) => {
     }
 })
 
+
 router.post('/', requireAuthenticatedUser, async (req,res,next) => {
     try {
         const user = res.locals.user
-        Exercises.createUserExerciseEntry({user, exercise: req.body})
+        Sleep.createUserSleepEntry({user, sleep: req.body})
         return res.status(201)
     }
     catch(error) {
