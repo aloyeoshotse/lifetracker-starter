@@ -2,6 +2,7 @@ import * as React from 'react'
 import apiClient from '../../../services/apiClient';
 import { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
+import { Link } from "react-router-dom";
 import Login from '../../Login/Login';
 import './SleepPage.css'
 
@@ -17,7 +18,6 @@ function SleepPage({error, setError, invalidForm}) {
     
             if (error) { setError((e) => ({...e, form: null})) }
         }
-        console.log(sleep)
         fetchSleepData()
     }, [])
 
@@ -25,31 +25,12 @@ function SleepPage({error, setError, invalidForm}) {
 
     return(
         <div className="sleep">
-            <Button className='add-sleep'>Track Sleep</Button>
-           { !localStorage.getItem("life_tracker_token") ?
-
-                <>
-                    <p style={{color: "red", fontWeight: "bold", textAlign: "center"}}>Log in to access this page</p>
-                    <Login error={error} setError={setError} invalidForm={invalidForm}/> 
-                </>
-
-            :
-            
-            <></>
-
-           }
-
-            {sleep ? 
-
-                <SleepGrid sleep={sleep}/>
-
-                :
-
-                <></>
-
-            }
-
+            <Link to={'/sleep/create'}>
+                <Button className='add-sleep'>Track Sleep</Button>
+            </Link>
+            <SleepGrid sleep={sleep}/>
         </div>
+    
     )
 }
 

@@ -2,6 +2,7 @@ import * as React from 'react'
 import apiClient from '../../../services/apiClient';
 import { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
+import { Link } from "react-router-dom";
 import Login from '../../Login/Login';
 import "./NutritionPage.css"
 
@@ -25,30 +26,13 @@ function NutritionPage({error, setError, invalidForm}) {
 
     return(
         <div className="nutrition">
-             <Button className='add-nutrition'>Record Nutrition</Button>
-           { !localStorage.getItem("life_tracker_token") ?
-
-                <>
-                    <p style={{color: "red", fontWeight: "bold", textAlign: "center"}}>Log in to access this page</p>
-                    <Login error={error} setError={setError} invalidForm={invalidForm}/> 
-                </>
-
-            :
-
-                <></>
-            }   
-
-            {nutrition ? 
-
-                <NutritionGrid nutrition={nutrition}/>
-
-                :
-
-                <></>
-
-            }
-
+             <Link to={'/nutrition/create'}>
+                <Button className='add-nutrition'>Record Nutrition</Button>
+             </Link>
+             <NutritionGrid nutrition={nutrition}/>
         </div>
+
+       
     )
 }
 

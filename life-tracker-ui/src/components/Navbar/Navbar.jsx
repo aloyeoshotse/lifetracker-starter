@@ -35,9 +35,10 @@ function NavBar({ loggedIn, setLoggedIn }) {
             <img id="logo" src="/src/lifetracker-logo.png"/>
           </Link>
           </Typography>
-            <div className="buttons">
+
+            {/* <div className="buttons">
               <Link to={'/activity'}>
-                <Button color="inherit">Activity</Button>
+                <Button color="inherit">Overview</Button>
               </Link>
 
               <Link to={'/exercise'}>
@@ -50,12 +51,12 @@ function NavBar({ loggedIn, setLoggedIn }) {
 
               <Link to={'/sleep'}>
                 <Button color="inherit">Sleep</Button>
-              </Link>
+              </Link> */}
         
               {
                 !localStorage.getItem("life_tracker_token") ? 
 
-                <>
+                <div className="buttons">
                   <Link to={'/login'}>
                     <Button color="inherit" sx={{ flexGrow: 1 }}>Login</Button>
                   </Link>
@@ -63,16 +64,29 @@ function NavBar({ loggedIn, setLoggedIn }) {
                   <Link to={'/register'}>
                     <Button color="inherit" sx={{ flexGrow: 1 }}>Register</Button>
                   </Link>
-                </>
+                </div>
 
                 :
 
-                <>
-                  <Button color="inherit" onClick={handleLogout}>Sign Out</Button>
-                </>
-              }
+                <div className="buttons">
+                  <Link to={'/activity'}>
+                    <Button color="inherit">Overview</Button>
+                  </Link>
 
-            </div>
+                  <Link to={'/exercise'}>
+                    <Button color="inherit">Exercise</Button>
+                  </Link>
+
+                  <Link to={'/nutrition'}>
+                    <Button color="inherit">Nutrition</Button>
+                  </Link>
+
+                  <Link to={'/sleep'}>
+                    <Button color="inherit">Sleep</Button>
+                  </Link>
+                  <Button color="inherit" onClick={handleLogout}>Sign Out</Button>
+                  </div>
+              }
         </Toolbar>
       </AppBar>
     </Box>

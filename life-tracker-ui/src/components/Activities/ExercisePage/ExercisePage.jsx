@@ -2,6 +2,7 @@ import * as React from 'react'
 import apiClient from '../../../services/apiClient';
 import { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
+import { Link } from "react-router-dom";
 import Login from '../../Login/Login';
 import "./ExercisePage.css"
 
@@ -20,35 +21,20 @@ function ExercisePage({error, setError, invalidForm}) {
         }
         console.log(exercise)
         fetchExerciseData()
+
+        console.log("exercise:", exercise)
+        console.log("token: ", localStorage.getItem("life_tracker_token"))
+
     }, [])
 
     return(
         <div className="exercise">
-            <Button className='add-exercise'>Add Exercise</Button>
-           { !localStorage.getItem("life_tracker_token") ?
-
-                <>
-                    <p style={{color: "red", fontWeight: "bold", textAlign: "center"}}>Log in to access this page</p>
-                    <Login error={error} setError={setError} invalidForm={invalidForm}/> 
-                </>
-
-            :
-            
-                <></>
-           }
-
-
-            {exercise ? 
-
-                <ExerciseGrid exercise={exercise}/>
-
-                :
-
-                <></>
-
-            }
-
+            <Link to={'/exercise/create'}>
+                <Button className='add-exercise'>Add Exercise</Button>  
+            </Link>
+            <ExerciseGrid exercise={exercise}/>
         </div>
+         
     )
 }
 
