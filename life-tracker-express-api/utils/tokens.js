@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { SECRET_KEY } from "../config.js"
 
-export const generateToken = (data) => jwt.sign(data, SECRET_KEY, { expiresIn: "1h" })
+export const generateToken = (data) => jwt.sign(data, SECRET_KEY, { expiresIn: "24h" })
 
 export const createUserJwt = (user) => {
     const payload = {
