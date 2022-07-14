@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Container from '@mui/material/Container';
-import Hero from '../Hero/Hero'
+import Hero from './Hero/Hero'
 import "./Home.css"
 
 function Home() {
