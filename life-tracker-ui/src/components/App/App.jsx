@@ -2,14 +2,13 @@ import * as React from "react"
 import { useState } from 'react'
 import NavBar from '../Navbar/Navbar';
 import Container from '@mui/material/Container';
-import ReactDOM from "react-dom/client";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Register from "../Register/Register"
 import Activity from "../Activity/Activity"
-import NutritionPage from "../NutritionPage/NutritionPage";
-import ExercisePage from "../ExercisePage/ExercisePage";
-import SleepPage from "../SleepPage/SleepPage";
+import NutritionPage from "../Activity/NutritionPage/NutritionPage";
+import ExercisePage from "../Activity/ExercisePage/ExercisePage";
+import SleepPage from "../Activity/SleepPage/SleepPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 
@@ -19,9 +18,6 @@ function App() {
   const [error, setError] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
-  //localStorage.getItem(life_tracker_token)
-  // const item = localStorage.getItem("life_tracker_token")
-  // console.log("item =", item)
 
   function isFormInvalid(object) {
     for (var prop in object) {

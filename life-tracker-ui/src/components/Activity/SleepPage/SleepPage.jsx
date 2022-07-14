@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Login from '../Login/Login';
+import Login from '../../Login/Login';
 
 function SleepPage({error, setError, invalidForm}) {
     return(

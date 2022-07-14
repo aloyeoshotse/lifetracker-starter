@@ -13,7 +13,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import axios from 'axios';
 import apiClient from "../../services/apiClient";
 import { useNavigate } from "react-router-dom";
 import './Login.css'
@@ -63,9 +62,6 @@ function Login({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-
-        // const url = 'http://localhost:3001/auth/login'
-
         const { data, error } = await apiClient.loginUser({ email: loginForm.email, password: loginForm.password })
         if (error) { setError((e) => ({...e, form: null})) }
         if (data?.user) {
@@ -76,24 +72,9 @@ function Login({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
           apiClient.setToken(data.token)
           event.target.reset();
           // setLoggedIn(true);
-          //localStorage.setItem("loggedIn", true)
           navigate('/activity');
         }
 
-        // axios.post(url, loginForm)
-        // .then((res) => {
-        //   console.log(res.data);
-        //   setLoginForm({
-        //     email: "",
-        //     password: ""
-        //   });
-        //   event.target.reset();
-        //   setLoggedIn(true);
-        //   navigate('/activity');
-        // })
-        // .catch((err) => {
-        //   setError(err.response.data.message);
-        // })
       };
     
     return(
