@@ -20,4 +20,20 @@ function ExercisePage({error, setError, invalidForm}) {
     )
 }
 
+function ExerciseGrid() {
+    return(
+        <div className="exercise-grid">
+            Exercise Grid
+        </div>
+    )
+}
+
+function ExerciseCard() {
+    return(
+        <div className="exercise-card">
+            Exercise Card
+        </div>
+    )
+}
+
 export default ExercisePage;

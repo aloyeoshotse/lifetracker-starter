@@ -20,4 +20,21 @@ function SleepPage({error, setError, invalidForm}) {
     )
 }
 
+function SleepGrid() {
+    return(
+        <div className="sleep-grid">
+            Sleep Grid
+        </div>
+    )
+}
+
+function SleepCard() {
+    return(
+        <div className="sleep-card">
+            Sleep Card
+        </div>
+    )
+}
+
+
 export default SleepPage;

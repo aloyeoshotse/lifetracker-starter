@@ -20,4 +20,20 @@ function NutritionPage({error, setError, invalidForm}) {
     )
 }
 
+function NutritionGrid() {
+    return(
+        <div className="nutrition-grid">
+            Nutrition Grid
+        </div>
+    )
+}
+
+function NutritionCard() {
+    return(
+        <div className="nutrition-card">
+            Nutrition Card
+        </div>
+    )
+}
+
 export default NutritionPage;
