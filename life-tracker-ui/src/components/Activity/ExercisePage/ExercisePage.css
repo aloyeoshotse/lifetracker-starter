@@ -1,16 +1,16 @@
-.nutrition {
+.exercise {
     background-color: gold;
     margin-top: 0.5in;
 }
 
-.nutrition-grid {
+.exercise-grid {
     /* background-color: blue; */
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.nutrition-card {
+.exercise-card {
     background-color: red;
     text-align: center;
     width: 4in;
@@ -18,13 +18,13 @@
     margin: 1cm;
 }
 
-.nutrition-details {
+.exercise-details {
     width: fit-content;
     background-color: blue;
     zoom: 50%;
 }
 
-.add-nutrition {
+.add-exercise {
    position: absolute;
    left: 13in
 }

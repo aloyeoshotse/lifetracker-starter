@@ -1,7 +1,7 @@
 import * as React from 'react'
 import apiClient from '../../../services/apiClient';
 import { useEffect, useState } from 'react';
-//import NutritionGrid from './NutritionGrid';
+import { Button } from '@mui/material';
 import Login from '../../Login/Login';
 import "./NutritionPage.css"
 
@@ -25,6 +25,7 @@ function NutritionPage({error, setError, invalidForm}) {
 
     return(
         <div className="nutrition">
+             <Button className='add-nutrition'>Record Nutrition</Button>
            { !localStorage.getItem("life_tracker_token") ?
 
                 <>

@@ -52,6 +52,13 @@ class ApiClient {
         return await this.request({ endpoint: `nutrition`, method: `GET` })
     }
 
+    async listUserExerciseEntries() {
+        return await this.request({ endpoint: `exercises`, method: `GET` })
+    }
+
+    async listUserSleepEntries() {
+        return await this.request({ endpoint: `sleep`, method: `GET` })
+    }
 }
 
 export default new ApiClient('http://localhost:3001')
