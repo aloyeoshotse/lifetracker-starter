@@ -78,10 +78,10 @@ function ExerciseForm({invalidForm}) {
                 margin="normal"
                 required
                 fullWidth
-                id="filled-required"
+                id="outlined-required"
                 label="Name"
                 name="name"
-                variant="filled"
+                variant="outlined"
                 sx={{marginLeft: "auto",
                     marginRight: "auto",
                     position: "relative",
@@ -96,10 +96,10 @@ function ExerciseForm({invalidForm}) {
                 margin="normal"
                 required
                 fullWidth
-                id="filled-required"
+                id="outlined-required"
                 label="Category"
                 name="category"
-                variant="filled"
+                variant="outlined"
                 sx={{marginLeft: "auto",
                     marginRight: "auto",
                     position: "relative",
@@ -114,7 +114,7 @@ function ExerciseForm({invalidForm}) {
                 margin="normal"
                 required
                 fullWidth
-                id="filled-number"
+                id="outlined-number"
                 label="Duration(min)"
                 type="number"
                 name="duration"
@@ -126,7 +126,7 @@ function ExerciseForm({invalidForm}) {
                     top: "1.5in",
                     left: "5.35in",
                     width: '27.5ch',  }}
-                variant="filled"
+                variant="outlined"
                 onChange={handleCreateFieldChange}
                 />
             </Grid>
@@ -135,7 +135,7 @@ function ExerciseForm({invalidForm}) {
                 margin="normal"
                 required
                 fullWidth
-                id="filled-number"
+                id="outlined-number"
                 label="Intensity(1-10)"
                 name="intensity"
                 type="number"
@@ -148,7 +148,7 @@ function ExerciseForm({invalidForm}) {
                     right: "0.05in",
                     width: '27.5ch'
                 }}
-                variant="filled"
+                variant="outlined"
                 onChange={handleCreateFieldChange}
                 />
             </Grid>

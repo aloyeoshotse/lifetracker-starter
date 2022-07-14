@@ -35,6 +35,9 @@ function SleepPage({error, setError, invalidForm}) {
 }
 
 function SleepGrid({sleep}) {
+
+    if (sleep) {sleep = Array.from(sleep).reverse();}
+
     return(
         <div className="sleep-grid">
              { sleep ?

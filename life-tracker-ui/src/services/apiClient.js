@@ -67,6 +67,10 @@ class ApiClient {
     async listUserSleepEntries() {
         return await this.request({ endpoint: `sleep`, method: `GET` })
     }
+
+    async createUserSleepEntry(object) {
+        return await this.request({ endpoint: `sleep`, method: `POST`, data: object })
+    }
 }
 
 export default new ApiClient('http://localhost:3001')

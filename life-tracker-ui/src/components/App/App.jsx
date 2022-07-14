@@ -11,6 +11,7 @@ import ExercisePage from "../Activities/ExercisePage/ExercisePage";
 import SleepPage from "../Activities/SleepPage/SleepPage";
 import ExerciseForm from "../Activities/ExercisePage/ExerciseForm";
 import NutritionForm from "../Activities/NutritionPage/NutritionForm";
+import SleepForm from "../Activities/SleepPage/SleepForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 
@@ -32,7 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
-      <Container maxWidth={false} sx={{backgroundColor: "gold", flexGrow: 0, minHeight: "100vh"}}>
+      <Container maxWidth={false} sx={{backgroundColor: "gold", minHeight: "100vh"}}>
         {
           <Routes>
             <Route path='/' element={<Home />}/>
@@ -49,7 +50,7 @@ function App() {
 
             <Route path='/nutrition/create' element={<NutritionForm invalidForm={isFormInvalid} />} />
             <Route path='/exercise/create' element={<ExerciseForm invalidForm={isFormInvalid} />} />
-            <Route path='/sleep/create' element={<div>Sleep Create</div>} />
+            <Route path='/sleep/create' element={<SleepForm invalidForm={isFormInvalid}/>} />
             
           </Routes>
         }

@@ -80,10 +80,10 @@ function NutritionForm({invalidForm}) {
                 margin="normal"
                 required
                 fullWidth
-                id="filled-required"
+                id="outlined-required"
                 label="Name"
                 name="name"
-                variant="filled"
+                variant="outlined"
                 sx={{marginLeft: "auto",
                     marginRight: "auto",
                     position: "relative",
@@ -98,10 +98,10 @@ function NutritionForm({invalidForm}) {
                 margin="normal"
                 required
                 fullWidth
-                id="filled-required"
+                id="outlined-required"
                 label="Category"
                 name="category"
-                variant="filled"
+                variant="outlined"
                 sx={{marginLeft: "auto",
                     marginRight: "auto",
                     position: "relative",
@@ -116,7 +116,7 @@ function NutritionForm({invalidForm}) {
                 margin="normal"
                 required
                 fullWidth
-                id="filled-number"
+                id="outlined-number"
                 label="Quantity"
                 type="number"
                 name="quantity"
@@ -128,7 +128,7 @@ function NutritionForm({invalidForm}) {
                     top: "1.5in",
                     left: "5.35in",
                     width: '27.5ch',  }}
-                variant="filled"
+                variant="outlined"
                 onChange={handleCreateFieldChange}
                 />
             </Grid>
@@ -137,7 +137,7 @@ function NutritionForm({invalidForm}) {
                 margin="normal"
                 required
                 fullWidth
-                id="filled-number"
+                id="outlined-number"
                 label="Calories"
                 name="calories"
                 type="number"
@@ -150,7 +150,7 @@ function NutritionForm({invalidForm}) {
                     right: "0.05in",
                     width: '27.5ch'
                 }}
-                variant="filled"
+                variant="outlined"
                 onChange={handleCreateFieldChange}
                 />
             </Grid>
@@ -160,7 +160,7 @@ function NutritionForm({invalidForm}) {
                 fullWidth
                 label="Image URL"
                 name="imageUrl"
-                variant="filled"
+                variant="outlined"
                 sx={{marginLeft: "auto",
                     marginRight: "auto",
                     position: "relative",
