@@ -19,11 +19,7 @@ function ExercisePage({error, setError, invalidForm}) {
     
             if (error) { setError((e) => ({...e, form: null})) }
         }
-        console.log(exercise)
         fetchExerciseData()
-
-        console.log("exercise:", exercise)
-        console.log("token: ", localStorage.getItem("life_tracker_token"))
 
     }, [])
 
@@ -39,6 +35,9 @@ function ExercisePage({error, setError, invalidForm}) {
 }
 
 function ExerciseGrid({exercise}) {
+
+    if (exercise) {exercise = Array.from(exercise).reverse();}
+
     return(
         <div className="exercise-grid">
         { exercise ?

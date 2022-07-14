@@ -9,6 +9,7 @@ import Dashboard from "../Dashboard/Dashboard"
 import NutritionPage from "../Activities/NutritionPage/NutritionPage";
 import ExercisePage from "../Activities/ExercisePage/ExercisePage";
 import SleepPage from "../Activities/SleepPage/SleepPage";
+import ExerciseForm from "../Activities/ExercisePage/ExerciseForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 
@@ -46,7 +47,7 @@ function App() {
             <Route path='/sleep' element={<SleepPage error={error} setError={setError} invalidForm={isFormInvalid}/> } />
 
             <Route path='/nutrition/create' element={<div>Nutrition Create</div>} />
-            <Route path='/exercise/create' element={<div>Exercise Create</div>} />
+            <Route path='/exercise/create' element={<ExerciseForm invalidForm={isFormInvalid} />} />
             <Route path='/sleep/create' element={<div>Sleep Create</div>} />
             
           </Routes>

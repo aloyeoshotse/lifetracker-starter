@@ -56,6 +56,10 @@ class ApiClient {
         return await this.request({ endpoint: `exercises`, method: `GET` })
     }
 
+    async createUserExerciseEntry(object) {
+        return await this.request({ endpoint: `exercises`, method: `POST`, data: object })
+    }
+
     async listUserSleepEntries() {
         return await this.request({ endpoint: `sleep`, method: `GET` })
     }
