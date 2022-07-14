@@ -35,38 +35,44 @@ function NavBar({ loggedIn, setLoggedIn }) {
             <img id="logo" src="/src/lifetracker-logo.png"/>
           </Link>
           </Typography>
-        
-            { !localStorage.getItem("life_tracker_token") ? 
+            <div className="buttons">
+              <Link to={'/activity'}>
+                <Button color="inherit">Activity</Button>
+              </Link>
 
-                <div className="buttons">
+              <Link to={'/exercise'}>
+                <Button color="inherit">Exercise</Button>
+              </Link>
+
+              <Link to={'/nutrition'}>
+                <Button color="inherit">Nutrition</Button>
+              </Link>
+
+              <Link to={'/sleep'}>
+                <Button color="inherit">Sleep</Button>
+              </Link>
+        
+              {
+                !localStorage.getItem("life_tracker_token") ? 
+
+                <>
                   <Link to={'/login'}>
-                    <Button color="inherit"  sx={{ flexGrow: 1 }}>Activity</Button>
-                    <Button color="inherit" sx={{ flexGrow: 1 }}>Exercise</Button>
-                    <Button color="inherit" sx={{ flexGrow: 1 }}>Nutrition</Button>
-                    <Button color="inherit" sx={{ flexGrow: 1 }}>Sleep</Button>
                     <Button color="inherit" sx={{ flexGrow: 1 }}>Login</Button>
                   </Link>
+
                   <Link to={'/register'}>
                     <Button color="inherit" sx={{ flexGrow: 1 }}>Register</Button>
                   </Link>
-                </div>
+                </>
 
                 :
 
-                <div className="buttons">
-                  <Link to={'/activity'}>
-                    <Button color="inherit">Activity</Button>
-                  </Link>
-                    <Button color="inherit">Exercise</Button>
-                  <Link to={'/nutrition'}>
-                    <Button color="inherit">Nutrition</Button>
-                  </Link>
-                  <Button color="inherit">Sleep</Button>
+                <>
                   <Button color="inherit" onClick={handleLogout}>Sign Out</Button>
-                </div>
+                </>
+              }
 
-            }
-            
+            </div>
         </Toolbar>
       </AppBar>
     </Box>

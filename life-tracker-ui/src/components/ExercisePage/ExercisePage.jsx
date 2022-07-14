@@ -1,11 +1,9 @@
-import * as React from "react";
-import Login from "../Login/Login";
-import './Activity.css';
+import * as React from 'react'
+import Login from '../Login/Login';
 
-function Activity ({error, setError, invalidForm}) {
-
+function ExercisePage({error, setError, invalidForm}) {
     return(
-        <div className="activity">
+        <div className="exercise">
            { !localStorage.getItem("life_tracker_token") ?
 
                 <>
@@ -15,12 +13,11 @@ function Activity ({error, setError, invalidForm}) {
 
             :
             
-            <>Activity</>
+            <>Exercise Page</>
 
            }
         </div>
     )
-
 }
 
-export default Activity;
+export default ExercisePage;

@@ -7,9 +7,11 @@ import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Register from "../Register/Register"
 import Activity from "../Activity/Activity"
+import NutritionPage from "../NutritionPage/NutritionPage";
+import ExercisePage from "../ExercisePage/ExercisePage";
+import SleepPage from "../SleepPage/SleepPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
-import NutritionPage from "../NutritionPage/NutritionPage";
 
 
 function App() {
@@ -40,8 +42,10 @@ function App() {
                                                 error={error} setError={setError} invalidForm={isFormInvalid} />}/>
             <Route path='/register' element={<Register loggedIn={loggedIn} setLoggedIn={setLoggedIn} 
                                                 error={error} setError={setError} invalidForm={isFormInvalid} />}/>
-            <Route path='/activity' element={<Activity/> } />
-            <Route path='/nutrition' element={<NutritionPage/> } />
+            <Route path='/activity' element={<Activity error={error} setError={setError} invalidForm={isFormInvalid}/> } />
+            <Route path='/nutrition' element={<NutritionPage error={error} setError={setError} invalidForm={isFormInvalid}/> } />
+            <Route path='/exercise' element={<ExercisePage error={error} setError={setError} invalidForm={isFormInvalid}/> } />
+            <Route path='/sleep' element={<SleepPage error={error} setError={setError} invalidForm={isFormInvalid}/> } />
           </Routes>
         }
       </Container>
