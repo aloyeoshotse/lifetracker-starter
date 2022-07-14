@@ -30,7 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
-      <Container maxWidth={false} sx={{backgroundColor: "gold", flexGrow: 1}}>
+      <Container maxWidth={false} sx={{backgroundColor: "gold", flexGrow: 0, minHeight: "100vh"}}>
         {
           <Routes>
             <Route path='/' element={<Home />}/>

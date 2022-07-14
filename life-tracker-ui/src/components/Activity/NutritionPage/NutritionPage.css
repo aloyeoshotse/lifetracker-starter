@@ -1,0 +1,25 @@
+.nutrition {
+    background-color: gold;
+    margin-top: 0.5in;
+}
+
+.nutrition-grid {
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.nutrition-card {
+    background-color: red;
+    text-align: center;
+    width: 4in;
+    height: 3in;
+    margin: 1cm;
+}
+
+.nutrition-details {
+    width: fit-content;
+    background-color: blue;
+    zoom: 50%;
+}

@@ -4,7 +4,7 @@ class ApiClient {
 
     constructor(remoteHostUrl) {
         this.remoteHostUrl = remoteHostUrl
-        this.token = null
+        this.token = localStorage.getItem("life_tracker_token") || null
         this.tokenName = "life_tracker_token"
     }
 
@@ -14,6 +14,7 @@ class ApiClient {
     }
 
     async request({ endpoint, method = 'GET', data = {} }) {
+
         const url = `${this.remoteHostUrl}/${endpoint}`
 
         const headers = {
@@ -45,6 +46,10 @@ class ApiClient {
 
     async registerUser(credentials) {
         return await this.request({ endpoint: `auth/register`, method: `POST`, data: credentials })
+    }
+
+    async listUserNutritionEntries() {
+        return await this.request({ endpoint: `nutrition`, method: `GET` })
     }
 
 }

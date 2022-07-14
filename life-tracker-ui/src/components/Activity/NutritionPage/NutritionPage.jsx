@@ -1,7 +1,28 @@
 import * as React from 'react'
+import apiClient from '../../../services/apiClient';
+import { useEffect, useState } from 'react';
+//import NutritionGrid from './NutritionGrid';
 import Login from '../../Login/Login';
+import "./NutritionPage.css"
 
 function NutritionPage({error, setError, invalidForm}) {
+
+    const [nutrition, setNutrition] = useState()
+
+
+    useEffect(() => {
+        const fetchNutritionData = async () => {
+            const { data, error } = await apiClient.listUserNutritionEntries()
+    
+            if (data?.nutrition) { setNutrition(data.nutrition) }
+    
+            if (error) { setError((e) => ({...e, form: null})) }
+        }
+        console.log(nutrition)
+        fetchNutritionData()
+    }, [])
+
+
     return(
         <div className="nutrition">
            { !localStorage.getItem("life_tracker_token") ?
@@ -12,26 +33,48 @@ function NutritionPage({error, setError, invalidForm}) {
                 </>
 
             :
-            
-            <>Nutrition Page</>
 
-           }
+                <></>
+            }   
+
+            {nutrition ? 
+
+                <NutritionGrid nutrition={nutrition}/>
+
+                :
+
+                <></>
+
+            }
+
         </div>
     )
 }
 
-function NutritionGrid() {
+
+function NutritionGrid({nutrition}) {
     return(
         <div className="nutrition-grid">
-            Nutrition Grid
+        { nutrition ?
+            nutrition.map((entry,idx) => { return <NutritionCard key={idx} entry={entry}/> })
+            :
+            <div style={{fontWeight: "bold", textAlign: "center", marginTop: "3in"}}>No nutrition entries available</div> 
+        }
         </div>
     )
 }
 
-function NutritionCard() {
+
+function NutritionCard({ entry }) {
     return(
         <div className="nutrition-card">
             Nutrition Card
+            <div></div>
+            <img id="img" src={entry.imageUrl} alt="temp-img" />
+            <div className="name">{entry.name}</div>
+            <div className="category">{entry.category}</div>
+            <div className="quantity">{entry.quantity}</div>
+            <div className="calories">{entry.calories}</div>
         </div>
     )
 }
