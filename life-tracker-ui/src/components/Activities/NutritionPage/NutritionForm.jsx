@@ -7,42 +7,44 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import apiClient from '../../../services/apiClient';
 
-function ExerciseForm({invalidForm}) {
+function NutritionForm({invalidForm}) {
 
-    const [newExercise, setNewExercise] = useState({
-                                                    name: "",
-                                                    category: "",
-                                                    duration: 0,
-                                                    intensity: 0
+    const [newNutrition, setNewNutrition] = useState({
+                                                        name : "",
+                                                        category : "",
+                                                        quantity : 0,
+                                                        calories : 0,
+                                                        imageUrl : ""
                                                     })
     const navigate = useNavigate();
 
-    let invalid = invalidForm(newExercise);
+    let invalid = invalidForm(newNutrition);
         
 
     const handleCreateFieldChange = (change) => {
 
-            let newObj = newExercise;
+            let newObj = newNutrition;
             let property = change.target.name;
             let value = change.target.value;
-            if (property == "duration" || property == "intensity") {
+            if (property == "quantity" || property == "calories") {
                 value = parseInt(value)
             }
             let pair = {[property] : value}
             newObj = {...newObj, ...pair}
-            setNewExercise(newObj)
+            setNewNutrition(newObj)
     }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        navigate('/exercise');
+        navigate('/nutrition');
 
-        await apiClient.createUserExerciseEntry({ 
-        name: newExercise.name,
-        category: newExercise.category,
-        duration: newExercise.duration,
-        intensity: newExercise.intensity
+        await apiClient.createUserNutritionEntry({ 
+        name: newNutrition.name,
+        category: newNutrition.category,
+        quantity: newNutrition.quantity,
+        calories: newNutrition.calories,
+        imageUrl: newNutrition.imageUrl
         })
       };
 
@@ -70,7 +72,7 @@ function ExerciseForm({invalidForm}) {
                     textAlign: "center",
                     fontWeight: "bold",
                     fontSize: "30px"}}>
-                    Add Exercise
+                    Record Nutrition
                 </div>
             </Grid>
             <Grid item xs={12}>
@@ -115,9 +117,9 @@ function ExerciseForm({invalidForm}) {
                 required
                 fullWidth
                 id="filled-number"
-                label="Duration(min)"
+                label="Quantity"
                 type="number"
-                name="duration"
+                name="quantity"
                 InputLabelProps={{
                     shrink: true,
                 }}
@@ -136,8 +138,8 @@ function ExerciseForm({invalidForm}) {
                 required
                 fullWidth
                 id="filled-number"
-                label="Intensity(1-10)"
-                name="intensity"
+                label="Calories"
+                name="calories"
                 type="number"
                 InputLabelProps={{
                     shrink: true,
@@ -149,6 +151,22 @@ function ExerciseForm({invalidForm}) {
                     width: '27.5ch'
                 }}
                 variant="filled"
+                onChange={handleCreateFieldChange}
+                />
+            </Grid>
+            <Grid item xs={12}>
+                <TextField
+                margin="normal"
+                fullWidth
+                label="Image URL"
+                name="imageUrl"
+                variant="filled"
+                sx={{marginLeft: "auto",
+                    marginRight: "auto",
+                    position: "relative",
+                    top: "1.5in",
+                    width: '55ch',
+                    }}
                 onChange={handleCreateFieldChange}
                 />
             </Grid>
@@ -169,4 +187,4 @@ function ExerciseForm({invalidForm}) {
     )
 }
 
-export default ExerciseForm
+export default NutritionForm

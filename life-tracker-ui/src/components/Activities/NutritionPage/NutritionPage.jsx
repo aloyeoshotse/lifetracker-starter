@@ -19,7 +19,6 @@ function NutritionPage({error, setError, invalidForm}) {
     
             if (error) { setError((e) => ({...e, form: null})) }
         }
-        console.log(nutrition)
         fetchNutritionData()
     }, [])
 
@@ -38,6 +37,9 @@ function NutritionPage({error, setError, invalidForm}) {
 
 
 function NutritionGrid({nutrition}) {
+
+    if (nutrition) {nutrition = Array.from(nutrition).reverse();}
+
     return(
         <div className="nutrition-grid">
         { nutrition ?
