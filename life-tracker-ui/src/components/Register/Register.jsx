@@ -13,8 +13,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useEffect } from "react";
-import axios from 'axios';
+// import { useEffect } from "react";
+import apiClient from "../../services/apiClient";
 import { useNavigate } from "react-router-dom";
 import './Register.css';
 
@@ -82,27 +82,32 @@ function Register({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
     }
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         
-        const url = 'http://localhost:3001/auth/register'
 
-        axios.post(url, registerForm)
-        .then((res) => {
-          console.log(res.data);
+        const { data, error } = await apiClient.registerUser({ 
+          firstName: registerForm.firstName,
+          lastName: registerForm.lastName,
+          email: registerForm.email, 
+          userName: registerForm.userName,
+          password: registerForm.password
+        })
+        if (error) { setError((e) => ({...e, form: null})) }
+        if (data?.user) {
           setRegisterForm({
-            firstName: "",
-            lastName: "",
-            email: "",
-            password: ""
-          });
+                firstName: "",
+                lastName: "",
+                email: "",
+                userName: "",
+                password: ""
+              });
+          apiClient.setToken(data.token)
           event.target.reset();
-          //setLoggedIn(true);
+          // setLoggedIn(true);
           navigate('/activity');
-        })
-        .catch((err) => {
-          setError(err.response.data.message);
-        })
+        }
+
       };
 
     return(
