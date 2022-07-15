@@ -26,7 +26,7 @@ CREATE TABLE nutrition (
     category        TEXT NOT NULL,
     quantity        INTEGER NOT NULL,
     calories        INTEGER NOT NULL,
-    image_url       TEXT,
+    image_url       TEXT NOT NULL DEFAULT "https://us.123rf.com/450wm/yehorlisnyi/yehorlisnyi2104/yehorlisnyi210400016/167492439-no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-comin.jpg?ver=6",
     created_at      TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
