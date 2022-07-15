@@ -63,7 +63,7 @@ function Login({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
         event.preventDefault();
 
         const { data, error } = await apiClient.loginUser({ email: loginForm.email, password: loginForm.password })
-        if (error) { setError((e) => ({...e, form: null})) }
+        if (error) { setError(error.data.message) }
         if (data?.user) {
           setLoginForm({
                 email: "",
@@ -76,6 +76,10 @@ function Login({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
         }
 
       };
+
+      React.useEffect(() => {
+        console.log("error:",error)
+      }, [error])
     
     return(
         <ThemeProvider theme={theme}>

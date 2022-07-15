@@ -31,7 +31,7 @@ class ApiClient {
         }
         catch(error) {
             console.error({ errorResponse: error.response })
-            const message = error?.response?.data?.error?.message
+            const message = error?.response
             return { data: null, error: message || String(error) }
         }
     }
@@ -73,4 +73,5 @@ class ApiClient {
     }
 }
 
+// export default new ApiClient('https://lifetracker-aoshotse.herokuapp.com/')
 export default new ApiClient('http://localhost:3001')

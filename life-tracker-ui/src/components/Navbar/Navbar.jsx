@@ -4,8 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import  './Navbar.css'
@@ -32,26 +30,9 @@ function NavBar({ loggedIn, setLoggedIn }) {
         <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1, width: "50%" }}>
           <Link to={'/'}>
-            <img id="logo" src="/src/lifetracker-logo.png"/>
+            <img id="logo" src="http://codepath-lifetracker.surge.sh/static/media/codepath.70a9a31f.svg"/>
           </Link>
           </Typography>
-
-            {/* <div className="buttons">
-              <Link to={'/activity'}>
-                <Button color="inherit">Overview</Button>
-              </Link>
-
-              <Link to={'/exercise'}>
-                <Button color="inherit">Exercise</Button>
-              </Link>
-
-              <Link to={'/nutrition'}>
-                <Button color="inherit">Nutrition</Button>
-              </Link>
-
-              <Link to={'/sleep'}>
-                <Button color="inherit">Sleep</Button>
-              </Link> */}
         
               {
                 !localStorage.getItem("life_tracker_token") ? 
