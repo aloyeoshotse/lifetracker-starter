@@ -42,10 +42,10 @@ function NutritionGrid({nutrition}) {
 
     return(
         <div className="nutrition-grid">
-        { nutrition ?
+        { nutrition && nutrition.length != 0 ?
             nutrition.map((entry,idx) => { return <NutritionCard key={idx} entry={entry}/> })
             :
-            <div style={{fontWeight: "bold", textAlign: "center", marginTop: "3in"}}>No nutrition entries available</div> 
+            <div style={{fontWeight: "bold", textAlign: "center", marginTop: "2in"}}>No nutrition entries available</div> 
         }
         </div>
     )

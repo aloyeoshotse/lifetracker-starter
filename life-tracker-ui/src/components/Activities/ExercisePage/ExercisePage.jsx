@@ -40,10 +40,10 @@ function ExerciseGrid({exercise}) {
 
     return(
         <div className="exercise-grid">
-        { exercise ?
+        { exercise && exercise.length != 0 ?
             exercise.map((entry,idx) => { return <ExerciseCard key={idx} entry={entry}/> })
             :
-            <div style={{fontWeight: "bold", textAlign: "center", marginTop: "3in"}}>No exercise entries available</div> 
+            <div style={{fontWeight: "bold", textAlign: "center", marginTop: "2in"}}>No exercise entries available</div> 
         }
         </div>
     )

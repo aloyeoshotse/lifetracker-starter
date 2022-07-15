@@ -3,7 +3,6 @@ import apiClient from '../../../services/apiClient';
 import { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import { Link } from "react-router-dom";
-import Login from '../../Login/Login';
 import './SleepPage.css'
 
 function SleepPage({error, setError, invalidForm}) {
@@ -19,6 +18,7 @@ function SleepPage({error, setError, invalidForm}) {
             if (error) { setError((e) => ({...e, form: null})) }
         }
         fetchSleepData()
+        console.log("sleep = ", sleep)
     }, [])
 
 
@@ -40,10 +40,10 @@ function SleepGrid({sleep}) {
 
     return(
         <div className="sleep-grid">
-             { sleep ?
+             { sleep && sleep.length != 0 ?
                 sleep.map((entry,idx) => { return <SleepCard key={idx} entry={entry}/> })
             :
-            <div style={{fontWeight: "bold", textAlign: "center", marginTop: "3in"}}>No sleep entries available</div> 
+            <div style={{fontWeight: "bold", textAlign: "center", marginTop: "2in"}}>No sleep entries available</div> 
         }
         </div>
     )

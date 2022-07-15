@@ -1,0 +1,13 @@
+.dashboard .create-btns {
+    margin-top: 1in;
+    margin-right: 1in;
+    float: right;
+}
+
+.dashboard .title {
+    margin-top: 1in;
+    margin-left: 3cm;
+    float: left;
+    font-size: 30px;
+    font-weight: bold;
+}
