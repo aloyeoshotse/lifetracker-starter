@@ -71,7 +71,6 @@ function Login({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
               });
           apiClient.setToken(data.token)
           event.target.reset();
-          // setLoggedIn(true);
           navigate('/activity');
         }
 

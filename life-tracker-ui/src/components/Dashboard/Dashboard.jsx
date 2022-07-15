@@ -55,17 +55,17 @@ function Dashboard ({error, setError, invalidForm}) {
                     <div className="title">
                         Overview
                     </div>
-                    <div className="create-btns">
-                        <Link to={'/exercise/create'}>
-                            <Button>Add Exercise</Button>  
-                        </Link>
-                        <Link to={'/nutrition/create'}>
-                            <Button>Record Nutrition</Button>
-                        </Link>
-                        <Link to={'/sleep/create'}>
-                            <Button>Track Sleep</Button>
-                        </Link>
-                    </div>
+                    <ul className="create-btns">
+                        <li>
+                            <a href="/exercise/create">Add Exercise</a>  
+                        </li>
+                        <li>
+                            <a href='/nutrition/create'>Record Nutrition</a>
+                        </li>
+                        <li>
+                            <a href='/sleep/create'>Track Sleep</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         <div className="grid">
