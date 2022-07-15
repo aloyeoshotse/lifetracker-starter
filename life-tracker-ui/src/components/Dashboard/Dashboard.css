@@ -1,13 +1,59 @@
-.dashboard .create-btns {
+.dashboard .header {
     margin-top: 1in;
-    margin-right: 1in;
-    float: right;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 42px;
 }
 
 .dashboard .title {
-    margin-top: 1in;
-    margin-left: 3cm;
-    float: left;
     font-size: 30px;
     font-weight: bold;
+    text-align: center;
+    margin-left: 2in;
+}
+
+.dashboard .create-btns {
+    float: right;
+    margin-left: 8in;
+}
+
+.SummaryStat, .SummaryStat {
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1cm;
+}
+
+.SummaryStat.gold, .SummaryStat.gold .background {
+    margin-top: 20px;
+    background-color: orange;
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.SummaryStat {
+    position: relative;
+    background: #fff;
+}
+
+p {
+    margin-left: 20px;
+}
+
+h1 {
+    margin-left: 20px;
+    margin-top: 60px;
+}
+
+.grid {
+    display: flex;
+    flex-direction: row;
+    margin-left: 4cm;
+    margin-top: 1cm;
 }

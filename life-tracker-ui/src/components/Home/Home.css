@@ -1,0 +1,14 @@
+.titles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 5in;
+    top: 6in;
+    font-size: 20px;
+}
+
+.title {
+    margin: 1cm;
+}
+

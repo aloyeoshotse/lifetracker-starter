@@ -3,7 +3,7 @@
     height: auto;
     margin-left: 5cm;
     zoom: 10%;
-    width: 3%;
+    width: 4%;
     height: auto;
 }
 
@@ -14,4 +14,8 @@
 .links .auth {
     margin-left: auto; 
     margin-right: 0;
+}
+
+.css-hyum1k-MuiToolbar-root{
+    background-color: #7e9a9a;
 }

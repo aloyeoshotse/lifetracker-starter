@@ -7,24 +7,24 @@ function Home() {
     return (
         <div className="home">
             <Hero />
-            <div className="tiles">
-                <div className="tile">
-                    {/* <img src="/static/media/icons-workout-48.4f4cdb05.svg" alt="Fitness"/> */}
+            {/* <div className="titles">
+                <div className="title">
+                    <img src="http://codepath-lifetracker.surge.sh/static/media/icons-workout-48.4f4cdb05.svg" alt="Fitness"/>
                     <p>Fitness</p>
                 </div>
-                <div className="tile">
-                    {/* <img src="/static/media/icons8-porridge-100.132d2715.svg" alt="Food"/> */}
+                <div className="title">
+                    <img src="http://codepath-lifetracker.surge.sh/static/media/icons8-porridge-100.132d2715.svg" alt="Food"/>
                     <p>Food</p>
                 </div>
-                <div className="tile">
-                    {/* <img src="/static/media/icons8-resting-100.81067336.svg" alt="Rest"/> */}
+                <div className="title">
+                    <img src="http://codepath-lifetracker.surge.sh/static/media/icons8-resting-100.81067336.svg" alt="Rest"/>
                     <p>Rest</p>
                 </div>
-                <div className="tile">
-                    {/* <img src="/static/media/icons8-planner-100.997ca54c.svg" alt="Planner"/> */}
+                <div className="title">
+                    <img src="http://codepath-lifetracker.surge.sh/static/media/icons8-planner-100.997ca54c.svg" alt="Planner"/>
                     <p>Planner</p>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
