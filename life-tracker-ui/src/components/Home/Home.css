@@ -3,8 +3,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     position: absolute;
-    left: 5in;
-    top: 6in;
+    left: 5.5in;
+    top: 6.5in;
     font-size: 20px;
 }
 
@@ -12,3 +12,19 @@
     margin: 1cm;
 }
 
+.title p {
+    width: 100px;
+    margin-left: 10px;
+}
+
+.img-fit {
+    margin-left: 10px;
+}
+
+.img-food {
+    margin-left: 5px;
+}
+
+.img-rest {
+    margin-left: 5px;
+}
