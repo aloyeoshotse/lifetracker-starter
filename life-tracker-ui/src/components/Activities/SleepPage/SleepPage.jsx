@@ -18,7 +18,6 @@ function SleepPage({error, setError, invalidForm}) {
             if (error) { setError((e) => ({...e, form: null})) }
         }
         fetchSleepData()
-        console.log("sleep = ", sleep)
     }, [])
 
 
@@ -51,12 +50,26 @@ function SleepGrid({sleep}) {
 
 function SleepCard({ entry }) {
 
+    const options = {  
+        year: "numeric", month: "short",  
+        day: "numeric"  
+    };  
+
     return(
         <div className="sleep-card">
-            Sleep Card
+            <h2>Sleep Card</h2>
             <div></div>
-            <div className="start-time">{entry.start_time}</div>
-            <div className="end-time">{entry.end_time}</div>
+            <div className='dates'>{new Date(entry.start_time).toLocaleDateString("en-us", options)} - {new Date(entry.end_time).toLocaleDateString("en-us", options)}</div>
+            <div className='grid1'>
+                <span className="start-time">Start Time </span>
+                {/* <span className="end-time">End Time</span> */}
+                <span className="start-time">{new Date(entry.start_time).toLocaleTimeString()}</span>
+            </div>
+            <span className='grid2'>
+                {/* <span className="start-time">{new Date(entry.start_time).toLocaleTimeString()}</span> */}
+                <span className="end-time">End Time</span>
+                <span className="end-time">{new Date(entry.end_time).toLocaleTimeString()}</span>
+            </span>
         </div>
     )
 }

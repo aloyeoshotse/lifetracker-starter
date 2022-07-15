@@ -86,33 +86,6 @@ function Dashboard ({error, setError, invalidForm}) {
                             <h1>{avgSleepTime} hrs</h1> :
                             <></>
                     }
-                    {/* <span className="sleep-avg">
-                        <>{
-                                activityData?.avgSleepDuration?.years ? 
-                                    <h1>{activityData.avgSleepDuration.year} year/s</h1> :
-                                    <></>
-                            }</>
-                        <>{
-                            activityData?.avgSleepDuration?.days ? 
-                                <h1>{activityData.avgSleepDuration.days} day/s,</h1> :
-                                <></>
-                            }</>
-                        <>{
-                            activityData?.avgSleepDuration?.hours ? 
-                                <h1>{activityData.avgSleepDuration.hours} hour/s</h1> :
-                                <></>
-                            }</>
-                        <>{
-                            activityData?.avgSleepDuration?.minutes ? 
-                                <h1>{activityData.avgSleepDuration.minues} minutes/s</h1> :
-                                <></>
-                            }</>
-                        <>{
-                            activityData?.avgSleepDuration?.seconds ? 
-                                <h1>{activityData.avgSleepDuration.hours} hour/s</h1> :
-                                <></>
-                            }</>
-                    </span> */}
                 </div>
             </div>
             <div className="SummaryStat large aqua">
