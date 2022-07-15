@@ -57,7 +57,7 @@ function NutritionCard({ entry }) {
         <div className="nutrition-card">
             Nutrition Card
             <div></div>
-            <img id="img" src={entry.imageUrl} alt="temp-img" />
+            <img id="img-nutrition" src={entry.imageUrl} alt="temp-img" />
             <div className="name">{entry.name}</div>
             <div className="category">{entry.category}</div>
             <div className="quantity">{entry.quantity}</div>

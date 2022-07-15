@@ -20,3 +20,24 @@
 .css-hyum1k-MuiToolbar-root{
     background-color: #7e9a9a;
 }
+
+.buttons {
+    position: relative;
+    right: 2in;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin-left: auto;
+    flex: 1 1;
+    max-width: 650px;
+    grid-gap: 50px;
+    gap: 50px;
+}
+
+li{
+    display: list-item;
+    text-align: -webkit-match-parent;
+    font-family: "Kanit",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+}
