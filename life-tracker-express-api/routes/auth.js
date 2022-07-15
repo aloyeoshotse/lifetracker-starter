@@ -57,4 +57,18 @@ router.get('/me', requireAuthenticatedUser , async(req,res,next) => {
     }
 })
 
+router.get('/feed', requireAuthenticatedUser, async (req,res,next) => {
+    try {
+        const user = res.locals.user
+        console.log("user = ", user)
+        let feedData = await User.getUserFeedData(user);
+        return res.status(200).json({
+            feed: feedData
+        })
+    }
+    catch(error) {
+        next(error)
+    }
+})
+
 export default router;

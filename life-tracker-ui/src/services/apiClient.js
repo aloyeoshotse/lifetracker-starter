@@ -71,6 +71,10 @@ class ApiClient {
     async createUserSleepEntry(object) {
         return await this.request({ endpoint: `sleep`, method: `POST`, data: object })
     }
+
+    async getUserFeedData() {
+        return await this.request({ endpoint: `auth/feed`, method: `GET` })
+    }
 }
 
 // export default new ApiClient('https://lifetracker-aoshotse.herokuapp.com/')

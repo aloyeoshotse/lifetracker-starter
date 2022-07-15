@@ -114,5 +114,30 @@ export class User {
         // if any of this goes wrong, throw an error
         throw new UnauthorizedError('Invalid email/password combo')
     }
+    
 
+    static async getUserFeedData(user) {
+        // this function retrieves relevant user data 
+        // from the tables and returns it 
+
+        /* we want total exercise minutes, avg sleep hrs, avg daily calories*/
+
+        console.log("db = ", db)
+
+        await db.query(``)
+        
+        const results = await db.query(
+            `
+            SELECT (SELECT SUM(duration) AS "totalDuration" FROM exercises GROUP BY exercises.username),
+                    (SELECT AVG(end_time - start_time) AS "avgSleepDuration" FROM sleep GROUP BY sleep.username),
+                    (SELECT AVG(calories) "avgCalories" FROM nutrition GROUP BY nutrition.username)
+            FROM exercises
+            JOIN sleep ON exercises.username = sleep.username
+            JOIN nutrition ON nutrition.username = sleep.username
+            WHERE exercises.username = (SELECT username FROM users WHERE email = $1)
+            `, [user.email]
+        )
+
+        return results.rows[0]
+    }
 }

@@ -1,9 +1,52 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
+import apiClient from "../../services/apiClient";
+import { useEffect, useState } from "react";
 import './Dashboard.css';
 
 function Dashboard ({error, setError, invalidForm}) {
+
+    const [activityData, setActivityData] = useState();
+    const [avgSleepTime, setAvgSleepTime] = useState();
+
+    useEffect(() => {
+
+        function calculateSleepTimeInHours(sleepobject) {
+
+            let totalTimeInHours = 0;
+
+            for (var prop in sleepobject) {
+                let value = sleepobject[prop];
+                let valueInt = parseInt(value);
+
+                if (prop == "years") {totalTimeInHours += (8760*valueInt)}
+                else if (prop == "months") {totalTimeInHours += (730*valueInt)}
+                else if (prop == "days") {totalTimeInHours += (24*valueInt)}
+                else if (prop == "hours") {totalTimeInHours += valueInt}
+                else if (prop == "minutes") { totalTimeInHours += (valueInt/60)}
+                else {totalTimeInHours += (valueInt/3600)}
+            }
+        
+           setAvgSleepTime(totalTimeInHours.toFixed(2))
+          }
+
+        const getActivityData = async () => {
+            const { data, error } = await apiClient.getUserFeedData()
+
+            if(error) {setError(error?.data?.message)}
+            if (data?.feed) {
+                console.log("data-feed = ", data.feed)
+                await setActivityData(data.feed)
+            }
+
+            await calculateSleepTimeInHours(data.feed.avgSleepDuration)
+
+        }
+
+        getActivityData()
+
+    }, [])
 
     return(
         <>
@@ -29,19 +72,56 @@ function Dashboard ({error, setError, invalidForm}) {
             <div className="SummaryStat large gold">
                 <div className="background">
                     <p>Total Exercise Minutes</p>
-                    <h1>change me!</h1>
+                    { activityData ? 
+                          <h1>{activityData.totalDuration}</h1> :
+                          <></>
+                    }
                 </div>
             </div>
             <div className="SummaryStat large purple">
                 <div className="background">
                     <p>Avg Sleep Hours</p>
-                    <h1>change me!</h1>
+                    {
+                        activityData?.avgSleepDuration ? 
+                            <h1>{avgSleepTime} hrs</h1> :
+                            <></>
+                    }
+                    {/* <span className="sleep-avg">
+                        <>{
+                                activityData?.avgSleepDuration?.years ? 
+                                    <h1>{activityData.avgSleepDuration.year} year/s</h1> :
+                                    <></>
+                            }</>
+                        <>{
+                            activityData?.avgSleepDuration?.days ? 
+                                <h1>{activityData.avgSleepDuration.days} day/s,</h1> :
+                                <></>
+                            }</>
+                        <>{
+                            activityData?.avgSleepDuration?.hours ? 
+                                <h1>{activityData.avgSleepDuration.hours} hour/s</h1> :
+                                <></>
+                            }</>
+                        <>{
+                            activityData?.avgSleepDuration?.minutes ? 
+                                <h1>{activityData.avgSleepDuration.minues} minutes/s</h1> :
+                                <></>
+                            }</>
+                        <>{
+                            activityData?.avgSleepDuration?.seconds ? 
+                                <h1>{activityData.avgSleepDuration.hours} hour/s</h1> :
+                                <></>
+                            }</>
+                    </span> */}
                 </div>
             </div>
             <div className="SummaryStat large aqua">
                 <div className="background">
                     <p>Avg Daily Calories</p>
-                    <h1>change me!</h1>
+                    { activityData ? 
+                          <h1>{activityData.avgCalories.slice(0,4)}</h1> :
+                          <></>
+                    }
                 </div>
             </div>
         </div>

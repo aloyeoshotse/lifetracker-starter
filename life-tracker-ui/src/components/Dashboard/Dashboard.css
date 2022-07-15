@@ -78,3 +78,9 @@ h1 {
     margin-left: 4cm;
     margin-top: 1cm;
 }
+
+.sleep-avg {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
