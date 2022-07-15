@@ -52,12 +52,14 @@ function ExerciseGrid({exercise}) {
 function ExerciseCard({entry}) {
     return(
         <div className="exercise-card">
-            Exercise Card
+            <h2>Exercise Card</h2>
             <div></div>
             <div className="name">{entry.name}</div>
+            <span className="duration get">Duration</span>
+            <div className='intensity get'>Intensity</div>
+            <span className="duration ans">{entry.duration}</span>
+            <div className="intensity ans">{entry.intensity}</div>
             <div className="category">{entry.category}</div>
-            <div className="duration">{entry.duration}</div>
-            <div className="intensity">{entry.intensity}</div>
         </div>
     )
 }

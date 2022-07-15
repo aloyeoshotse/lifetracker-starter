@@ -60,13 +60,11 @@ function SleepCard({ entry }) {
             <h2>Sleep Card</h2>
             <div></div>
             <div className='dates'>{new Date(entry.start_time).toLocaleDateString("en-us", options)} - {new Date(entry.end_time).toLocaleDateString("en-us", options)}</div>
-            <div className='grid1'>
+            <div>
                 <span className="start-time">Start Time </span>
-                {/* <span className="end-time">End Time</span> */}
                 <span className="start-time">{new Date(entry.start_time).toLocaleTimeString()}</span>
             </div>
-            <span className='grid2'>
-                {/* <span className="start-time">{new Date(entry.start_time).toLocaleTimeString()}</span> */}
+            <span>
                 <span className="end-time">End Time</span>
                 <span className="end-time">{new Date(entry.end_time).toLocaleTimeString()}</span>
             </span>
