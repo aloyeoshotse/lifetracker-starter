@@ -93,8 +93,7 @@ function Register({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
           userName: registerForm.userName,
           password: registerForm.password
         })
-        if (error) { setError(error.data.message) }
-        console.log(error.data.message)
+        if (error) { setError(error?.data?.message) }
         if (data?.user) {
           setRegisterForm({
                 firstName: "",
@@ -103,10 +102,10 @@ function Register({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
                 userName: "",
                 password: ""
               });
+          navigate('/activity');
           apiClient.setToken(data.token)
           event.target.reset();
           // setLoggedIn(true);
-          navigate('/activity');
         }
 
       };

@@ -74,7 +74,7 @@ function Dashboard ({error, setError, invalidForm}) {
                     <p>Total Exercise Minutes</p>
                     { activityData ? 
                           <h1>{activityData.totalDuration}</h1> :
-                          <></>
+                          <h1>0</h1>
                     }
                 </div>
             </div>
@@ -84,7 +84,7 @@ function Dashboard ({error, setError, invalidForm}) {
                     {
                         activityData?.avgSleepDuration ? 
                             <h1>{avgSleepTime} hrs</h1> :
-                            <></>
+                            <h1>0</h1>
                     }
                 </div>
             </div>
@@ -93,7 +93,7 @@ function Dashboard ({error, setError, invalidForm}) {
                     <p>Avg Daily Calories</p>
                     { activityData ? 
                           <h1>{activityData.avgCalories.slice(0,4)}</h1> :
-                          <></>
+                          <h1>0</h1>
                     }
                 </div>
             </div>
