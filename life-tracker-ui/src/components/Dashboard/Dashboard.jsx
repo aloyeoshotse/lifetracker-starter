@@ -32,13 +32,13 @@ function Dashboard ({error, setError, invalidForm}) {
                     <h1>change me!</h1>
                 </div>
             </div>
-            <div className="SummaryStat large gold">
+            <div className="SummaryStat large purple">
                 <div className="background">
                     <p>Avg Sleep Hours</p>
                     <h1>change me!</h1>
                 </div>
             </div>
-            <div className="SummaryStat large gold">
+            <div className="SummaryStat large aqua">
                 <div className="background">
                     <p>Avg Daily Calories</p>
                     <h1>change me!</h1>

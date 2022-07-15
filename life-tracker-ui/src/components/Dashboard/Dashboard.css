@@ -29,13 +29,34 @@
 
 .SummaryStat.gold, .SummaryStat.gold .background {
     margin-top: 20px;
-    background-color: orange;
+    background-color: #ffab09;
     width: 360px;
     height: 220px;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
 }
+
+.SummaryStat.purple, .SummaryStat.purple .background {
+    margin-top: 20px;
+    background-color: #4e81eb;
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.SummaryStat.aqua, .SummaryStat.aqua .background {
+    margin-top: 20px;
+    background-color: #03c5d1;
+    width: 360px;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
 
 .SummaryStat {
     position: relative;

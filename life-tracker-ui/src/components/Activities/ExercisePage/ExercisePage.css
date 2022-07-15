@@ -12,17 +12,11 @@
 }
 
 .exercise-card {
-    background-color: red;
+    background-color: #ffab09;
     text-align: center;
     width: 4in;
     height: 3in;
     margin: 1cm;
-}
-
-.exercise-details {
-    width: fit-content;
-    background-color: blue;
-    zoom: 50%;
 }
 
 .add-exercise {

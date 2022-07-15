@@ -12,17 +12,11 @@
 }
 
 .nutrition-card {
-    background-color: red;
+    background-color: #03c5d1;
     text-align: center;
     width: 4in;
     height: 3in;
     margin: 1cm;
-}
-
-.nutrition-details {
-    width: fit-content;
-    background-color: blue;
-    zoom: 50%;
 }
 
 .add-nutrition {

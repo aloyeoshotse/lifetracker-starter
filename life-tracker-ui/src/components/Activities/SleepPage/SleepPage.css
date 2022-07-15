@@ -12,17 +12,11 @@
 }
 
 .sleep-card {
-    background-color: red;
+    background-color: #4e81eb;
     text-align: center;
     width: 4in;
     height: 3in;
     margin: 1cm;
-}
-
-.sleep-details {
-    width: fit-content;
-    background-color: blue;
-    zoom: 50%;
 }
 
 .add-sleep {
