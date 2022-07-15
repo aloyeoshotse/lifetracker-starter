@@ -93,7 +93,8 @@ function Register({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
           userName: registerForm.userName,
           password: registerForm.password
         })
-        if (error) { setError((e) => ({...e, form: null})) }
+        if (error) { setError(error.data.message) }
+        console.log(error.data.message)
         if (data?.user) {
           setRegisterForm({
                 firstName: "",

@@ -1,5 +1,5 @@
 .exercise {
-    background-color: gold;
+    background-color: #7e9a9a;
     margin-top: 0.5in;
 }
 
@@ -8,6 +8,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #7e9a9a;
 }
 
 .exercise-card {

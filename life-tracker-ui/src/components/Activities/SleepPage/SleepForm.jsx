@@ -65,7 +65,7 @@ function SleepForm({invalidForm}) {
                                                                                                                                     marginBottom: "1cm",
                                                                                                                                     height: "1cm",
                                                                                                                                     fontSize: "20px",
-                                                                                                                                    backgroundColor: "gold",
+                                                                                                                                    backgroundColor: "#7e9a9a",
                                                                                                                                     fontFamily: "Arial"}}/>
             </div>
             
@@ -79,7 +79,7 @@ function SleepForm({invalidForm}) {
                 <input type="datetime-local" name="endTime" onChange={handleCreateFieldChange} value={newSleep.endTime} style={{ width: '50ch',
                                                                                                                                 marginBottom: "1cm",
                                                                                                                                 height: "1cm",
-                                                                                                                                backgroundColor: "gold",
+                                                                                                                                backgroundColor: "#7e9a9a",
                                                                                                                                 fontSize: "20px",
                                                                                                                                 fontFamily: "Arial"}}/>
             </div>
