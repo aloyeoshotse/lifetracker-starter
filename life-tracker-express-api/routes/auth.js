@@ -61,7 +61,7 @@ router.get('/feed', requireAuthenticatedUser, async (req,res,next) => {
     try {
         const user = res.locals.user
         console.log("user = ", user)
-        let feedData = await User.getUserFeedData(user);
+        let feedData = await User.getUserNutritionData(user);
         return res.status(200).json({
             feed: feedData
         })

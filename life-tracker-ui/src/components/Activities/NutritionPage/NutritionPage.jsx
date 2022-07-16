@@ -53,15 +53,24 @@ function NutritionGrid({nutrition}) {
 
 
 function NutritionCard({ entry }) {
+
+    console.log("img: ", entry?.image_url)
+
     return(
         <div className="nutrition-card">
-            Nutrition Card
+             { entry?.image_url ?
+                <img id="img-nutrition" src={entry.image_url} alt="temp-img" />
+                :
+                <img id="img-nutrition" src="https://us.123rf.com/450wm/yehorlisnyi/yehorlisnyi2104/yehorlisnyi210400016/167492439-no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-comin.jpg?ver=6" alt="" />
+            }
+            <h2>Nutrition Card</h2>
             <div></div>
-            <img id="img-nutrition" src={entry.imageUrl} alt="temp-img" />
             <div className="name">{entry.name}</div>
+            <div className="quantity get">Quantity</div>
+            <div className="calories get">Calories</div>
+            <div className="quantity ans">{entry.quantity}</div>
+            <div className="calories ans">{entry.calories}</div>
             <div className="category">{entry.category}</div>
-            <div className="quantity">{entry.quantity}</div>
-            <div className="calories">{entry.calories}</div>
         </div>
     )
 }

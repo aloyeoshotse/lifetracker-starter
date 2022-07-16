@@ -14,7 +14,6 @@ function NutritionForm({invalidForm}) {
                                                         category : "",
                                                         quantity : 0,
                                                         calories : 0,
-                                                        imageUrl : ""
                                                     })
     const navigate = useNavigate();
 
@@ -38,6 +37,8 @@ function NutritionForm({invalidForm}) {
         event.preventDefault();
 
         navigate('/nutrition');
+
+        console.log("new: ",newNutrition.imageUrl)
 
         await apiClient.createUserNutritionEntry({ 
         name: newNutrition.name,

@@ -32,14 +32,15 @@ function Dashboard ({error, setError, invalidForm}) {
           }
 
         const getActivityData = async () => {
-            const { data, error } = await apiClient.getUserFeedData()
+            const { data, error } = await apiClient.getUserNutritionData()
+            console.log(data)
 
             if(error) {setError(error?.data?.message)}
-            if (data?.feed) {
-                console.log("data-feed = ", data.feed)
-                await setActivityData(data.feed)
+            if (data.feed) {
+                setActivityData(data.feed)
             }
 
+            console.log(data.feed)
             await calculateSleepTimeInHours(data.feed.avgSleepDuration)
 
         }
