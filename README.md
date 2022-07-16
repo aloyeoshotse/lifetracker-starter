@@ -2,9 +2,11 @@
 
 # Week 3 Assignment: Life Tracker
 
-Submitted by: **NAME**
+Submitted by: **Aloye**
 
-Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
+Deployed Application: [Lifetracker Deployed Site](lifetracker-ajo.surge.sh)
+
+https://www.loom.com/share/f43ea8b2ab8a416fad1385d916e4cf04
 
 ## Application Features
 
@@ -21,14 +23,13 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 - [x] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
 - [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
 - [x] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
-- [ ] Deployed website with Heroku & Surge. 
+- [x] Deployed website with Heroku & Surge. 
 
 **Detailed Activity Page:**
 - [x] The detailed activity page should display a feed of all previous tracked activities.
 - [x] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
-- [ ] The activity tracked should be given a unique id for easy lookup.
-  `TODO://` Add link to table schema in the link code below. Your file should end in `.sql` and show your schema for the detailed activities table. (🚫 Remove this paragraph after adding schema link)
-  * [Table Schema](📝ADD LINK TO TABLE SCHEMA.sql HERE!) 
+- [x] The activity tracked should be given a unique id for easy lookup.
+  * [Table Schema](/Users/aoshotse/FTL/Week_4/lifetracker-starter/life-tracker-express-api/life-tracker-schema.sql) 
 
 ### Stretch Features
 
