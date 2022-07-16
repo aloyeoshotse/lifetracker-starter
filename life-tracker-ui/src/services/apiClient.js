@@ -72,7 +72,7 @@ class ApiClient {
         return await this.request({ endpoint: `sleep`, method: `POST`, data: object })
     }
 
-    async getUserFeedData() {
+    async getUserNutritionData() {
         return await this.request({ endpoint: `auth/feed`, method: `GET` })
     }
 }

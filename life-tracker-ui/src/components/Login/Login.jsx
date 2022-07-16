@@ -63,7 +63,7 @@ function Login({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
         event.preventDefault();
 
         const { data, error } = await apiClient.loginUser({ email: loginForm.email, password: loginForm.password })
-        if (error) { setError(error.data.message) }
+        if (error) { setError(error?.data?.message) }
         if (data?.user) {
           setLoginForm({
                 email: "",
