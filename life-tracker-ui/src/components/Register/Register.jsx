@@ -13,7 +13,6 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import { useEffect } from "react";
 import apiClient from "../../services/apiClient";
 import { useNavigate } from "react-router-dom";
 import './Register.css';
@@ -35,7 +34,7 @@ function Copyright(props) {
   const theme = createTheme();
 
 
-function Register({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
+function Register({ error, setError, invalidForm }) {
   
     const [registerForm, setRegisterForm] = useState({
                                                         firstName: "",
@@ -105,7 +104,6 @@ function Register({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
           navigate('/activity');
           apiClient.setToken(data.token)
           event.target.reset();
-          // setLoggedIn(true);
         }
 
       };

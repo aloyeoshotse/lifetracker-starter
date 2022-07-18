@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import  './Navbar.css'
 
-function NavBar({ loggedIn, setLoggedIn }) {
+function NavBar() {
 
 
   const navigate = useNavigate();
@@ -17,7 +17,6 @@ function NavBar({ loggedIn, setLoggedIn }) {
 
     event.preventDefault();
     localStorage.removeItem("life_tracker_token");
-    setLoggedIn(false);
     navigate('/');
     
   }
@@ -49,24 +48,6 @@ function NavBar({ loggedIn, setLoggedIn }) {
 
                 :
 
-                // <div className="buttons">
-                //   <Link to={'/activity'}>
-                //     <Button color="inherit">Overview</Button>
-                //   </Link>
-
-                //   <Link to={'/exercise'}>
-                //     <Button color="inherit">Exercise</Button>
-                //   </Link>
-
-                //   <Link to={'/nutrition'}>
-                //     <Button color="inherit">Nutrition</Button>
-                //   </Link>
-
-                //   <Link to={'/sleep'}>
-                //     <Button color="inherit">Sleep</Button>
-                //   </Link>
-                //   <Button color="inherit" onClick={handleLogout}>Sign Out</Button>
-                //   </div>
                 <ul className="buttons">
                   <li>
                     <a href='/activity'>Overview</a>

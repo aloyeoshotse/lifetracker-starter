@@ -82,8 +82,6 @@ function Dashboard ({error, setError}) {
         </>
        
     )
-
-    // style={{position: "absolute", left:" -122px", bottom: "-122px", right: "0px", transform: "rotate(180deg)", transformOrigin: "center center"}}
 }
 
 export default Dashboard;

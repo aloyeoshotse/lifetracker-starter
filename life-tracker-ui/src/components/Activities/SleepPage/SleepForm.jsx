@@ -87,7 +87,6 @@ function SleepForm({invalidForm}) {
                     left: "5.35in",
                     width: '72ch', }}
                 type="submit"
-                // onClick={handleSubmit}
                 disabled = {invalid}
             >
                 Save

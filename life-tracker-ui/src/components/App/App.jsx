@@ -19,7 +19,6 @@ import './App.css'
 function App() {
 
   const [error, setError] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
 
 
   function isFormInvalid(object) {
@@ -32,16 +31,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+      <NavBar />
       <Container maxWidth={false} sx={{backgroundColor: "#7e9a9a", minHeight: "100vh", minWidth: "10cm"}}>
         {
           <Routes>
             <Route path='/' element={<Home />}/>
 
-            <Route path='/login' element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} 
-                                                error={error} setError={setError} invalidForm={isFormInvalid} />}/>
-            <Route path='/register' element={<Register loggedIn={loggedIn} setLoggedIn={setLoggedIn} 
-                                                error={error} setError={setError} invalidForm={isFormInvalid} />}/>
+            <Route path='/login' element={<Login error={error} setError={setError} invalidForm={isFormInvalid} />}/>
+            <Route path='/register' element={<Register error={error} setError={setError} invalidForm={isFormInvalid} />}/>
 
             <Route path='/activity' element={<Dashboard error={error} setError={setError} invalidForm={isFormInvalid}/> } />
             <Route path='/nutrition' element={<NutritionPage error={error} setError={setError} invalidForm={isFormInvalid}/> } />
