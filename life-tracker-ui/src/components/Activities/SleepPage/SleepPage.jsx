@@ -57,7 +57,7 @@ function SleepCard({ entry }) {
 
     return(
         <div className="sleep-card">
-            <h2>Sleep Card</h2>
+            <h2>Sleep Card - {entry.id}</h2>
             <div></div>
             <div className='dates'>{new Date(entry.start_time).toLocaleDateString("en-us", options)} - {new Date(entry.end_time).toLocaleDateString("en-us", options)}</div>
             <div>
