@@ -2,7 +2,7 @@
 
 # Week 3 Assignment: Life Tracker
 
-Submitted by: **Aloye**
+Submitted by: **Aloye Oshotse**
 
 Deployed Application: [Lifetracker Deployed Site](lifetracker-ajo.surge.sh)
 
