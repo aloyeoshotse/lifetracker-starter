@@ -32,6 +32,15 @@ function SleepPage({error, setError, invalidForm}) {
 
     return(
         <div className="sleep">
+             <div className="Banner" style={{backgroundColor: "#647B7B",
+                                                    height: "100px",
+                                                    marginTop: "1.5cm",
+                                                    display: "flex",
+                                                    justifyContent: "center"}}>
+                    <h1 style={{fontSize: "50px", width: "fit-content", marginTop: "20px"}}>
+                        Sleep
+                    </h1>
+                </div>
             <Link to={'/sleep/create'}>
                 <Button className='add-sleep'>Track Sleep</Button>
             </Link>

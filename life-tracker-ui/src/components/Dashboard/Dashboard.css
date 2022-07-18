@@ -14,9 +14,6 @@
 }
 
 .dashboard .create-btns {
-    /* float: right;
-    margin-left: 8in;
-    text-align: center; */
     position: relative;
     right: 2.5in;
     display: flex;

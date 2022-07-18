@@ -33,6 +33,15 @@ function ExercisePage({error, setError, invalidForm}) {
 
     return(
         <div className="exercise">
+            <div className="Banner" style={{backgroundColor: "#647B7B",
+                                                    height: "100px",
+                                                    marginTop: "1.5cm",
+                                                    display: "flex",
+                                                    justifyContent: "center"}}>
+                    <h1 style={{fontSize: "50px", width: "fit-content", marginTop: "20px"}}>
+                        Exercise
+                    </h1>
+                </div>
             <Link to={'/exercise/create'}>
                 <Button className='add-exercise'>Add Exercise</Button>  
             </Link>

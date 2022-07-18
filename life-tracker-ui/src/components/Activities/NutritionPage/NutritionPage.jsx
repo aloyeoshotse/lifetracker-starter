@@ -33,6 +33,15 @@ function NutritionPage({error, setError, invalidForm}) {
 
     return(
         <div className="nutrition">
+             <div className="Banner" style={{backgroundColor: "#647B7B",
+                                                    height: "100px",
+                                                    marginTop: "1.5cm",
+                                                    display: "flex",
+                                                    justifyContent: "center"}}>
+                    <h1 style={{fontSize: "50px", width: "fit-content", marginTop: "20px"}}>
+                        Nutrition
+                    </h1>
+                </div>
              <Link to={'/nutrition/create'}>
                 <Button className='add-nutrition'>Record Nutrition</Button>
              </Link>
