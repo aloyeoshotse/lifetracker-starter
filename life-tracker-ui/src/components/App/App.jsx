@@ -32,7 +32,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Container maxWidth={false} sx={{backgroundColor: "#7e9a9a", minHeight: "100vh", minWidth: "10cm"}}>
+      <Container id="lt-container" maxWidth={false}>
         {
           <Routes>
             <Route path='/' element={<Home />}/>

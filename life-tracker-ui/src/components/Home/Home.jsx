@@ -7,16 +7,16 @@ function Home() {
     return (
         <div className="home">
             <Hero />
-            <div className="titles">
-                <div className="title">
+            <div className="footer-titles">
+                <div className="footer-title">
                     <img className="img-fit" src="http://codepath-lifetracker.surge.sh/static/media/icons-workout-48.4f4cdb05.svg" alt="Fitness"/>
                     <p>Fitness</p>
                 </div>
-                <div className="title">
+                <div className="footer-title">
                     <img className="img-food" src="http://codepath-lifetracker.surge.sh/static/media/icons8-porridge-100.132d2715.svg" alt="Food"/>
                     <p>Food</p>
                 </div>
-                <div className="title">
+                <div className="footer-title">
                     <img className="img-rest" src="http://codepath-lifetracker.surge.sh/static/media/icons8-resting-100.81067336.svg" alt="Rest"/>
                     <p>Rest</p>
                 </div>

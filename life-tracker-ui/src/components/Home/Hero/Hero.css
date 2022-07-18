@@ -1,19 +1,24 @@
-#img {
-    position: absolute;
-    left: 5.6in;
-    top: 1.5in;
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
 }
 
-#title {
-    position: absolute;
-    left: 6in;
-    top: 3in;
-    font-size: 70px;
+#lt-img {
+    align-self: center;
 }
+
+#main-title {
+    align-self: center;
+    position: absolute;
+    margin-top: 240px;
+    font-size: 50px;
+}
+
 
 #description {
     position: absolute;
-    left: 5.65in;
-    top: 4.5in;
-    font-size: 20px;
+    margin-top: 320px;
+    align-self: center;
 }

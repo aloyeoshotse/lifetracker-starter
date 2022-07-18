@@ -34,10 +34,10 @@ https://www.loom.com/share/f43ea8b2ab8a416fad1385d916e4cf04
 ### Stretch Features
 
 Implement any of the following features to improve the application:
-- [ ] Each model (`nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource. Create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
-- [ ] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item.
-- [ ] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
-- [ ] Create a page that shows all other users that use the life tracker application and allow users to follow each other.
+- [x] Each model (`nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource. Create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
+- [x] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item.
+- [x] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
+- [x] Create a page that shows all other users that use the life tracker application and allow users to follow each other.
 
 ### Walkthrough Video
 

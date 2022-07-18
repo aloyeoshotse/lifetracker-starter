@@ -5,7 +5,8 @@
   background-color: darkblue;
 }
 
-
-.css-1j0j3ky-MuiContainer-root {
-  min-width: 80vh;
+#lt-container {
+  background-color: #7e9a9a;
+  min-height: 100vh;
+  min-width: 10cm;
 }

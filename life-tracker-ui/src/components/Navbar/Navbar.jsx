@@ -25,7 +25,7 @@ function NavBar() {
   return (
     
     <Box>
-      <AppBar position="static">
+      <AppBar id="lt-navbar" position="static">
         <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1, width: "50%" }}>
           <Link to={'/'}>
