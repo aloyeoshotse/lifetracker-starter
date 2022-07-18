@@ -120,14 +120,11 @@ export class User {
         
         const results = await db.query(
             `
-            SELECT (SELECT SUM(duration) AS "totalDuration" FROM exercises GROUP BY exercises.username),
+            SELECT SUM(duration) AS "totalDuration"
             FROM exercises
-            WHERE exercise.username = (SELECT username FROM users WHERE email = $1)
+            WHERE username = (SELECT username FROM users WHERE email = $1)
             `, [user.email]
         )
-
-        console.log("result = ", results)
-
         return results.rows[0]
     }
 
@@ -138,12 +135,47 @@ export class User {
             `
             SELECT AVG(calories) AS "avgCalories" 
             FROM nutrition 
-            WHERE nutrition.username = (SELECT username FROM users WHERE email = $1);
+            WHERE username = (SELECT username FROM users WHERE email = $1);
+            `, [user.email]
+        )
+        return results.rows[0]
+    }
+
+
+    static async calculateSleepTimeInHours(sleepobject) {
+
+        let totalTimeInHours = 0;
+
+        for (var prop in sleepobject) {
+            let value = sleepobject[prop];
+
+            if (typeof value == "number") {
+                if (prop == "years") {totalTimeInHours += (8760*value)}
+                else if (prop == "months") {totalTimeInHours += (730*value)}
+                else if (prop == "days") {totalTimeInHours += (24*value)}
+                else if (prop == "hours") {totalTimeInHours += value}
+                else if (prop == "minutes") { totalTimeInHours += (value/60)}
+                else {totalTimeInHours += (value/3600)}
+            }
+        }
+
+        return {avgSleepTime: totalTimeInHours.toFixed(2)}
+
+    }
+
+
+    static async getUserSleepData(user) {
+    
+        const results = await db.query(
+            `
+            SELECT AVG(end_time - start_time) AS "avgSleepTime" 
+            FROM sleep 
+            WHERE username = (SELECT username FROM users WHERE email = $1);
             `, [user.email]
         )
 
-        console.log("result = ", results)
+        return this.calculateSleepTimeInHours(results.rows[0].avgSleepTime)
 
-        return results.rows[0]
     }
+
 }

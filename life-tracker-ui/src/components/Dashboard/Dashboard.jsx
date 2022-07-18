@@ -1,51 +1,32 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, containerClasses } from "@mui/material";
 import apiClient from "../../services/apiClient";
 import { useEffect, useState } from "react";
 import './Dashboard.css';
 
-function Dashboard ({error, setError, invalidForm}) {
+function Dashboard ({error, setError}) {
 
-    const [activityData, setActivityData] = useState();
+    const [nutritionData, setNutritionData] = useState();
+    const [exerciseData, setExerciseData] = useState();
+    const [sleepData, setSleepData] = useState();
     const [avgSleepTime, setAvgSleepTime] = useState();
 
     useEffect(() => {
 
-        function calculateSleepTimeInHours(sleepobject) {
 
-            let totalTimeInHours = 0;
-
-            for (var prop in sleepobject) {
-                let value = sleepobject[prop];
-                let valueInt = parseInt(value);
-
-                if (prop == "years") {totalTimeInHours += (8760*valueInt)}
-                else if (prop == "months") {totalTimeInHours += (730*valueInt)}
-                else if (prop == "days") {totalTimeInHours += (24*valueInt)}
-                else if (prop == "hours") {totalTimeInHours += valueInt}
-                else if (prop == "minutes") { totalTimeInHours += (valueInt/60)}
-                else {totalTimeInHours += (valueInt/3600)}
-            }
-        
-           setAvgSleepTime(totalTimeInHours.toFixed(2))
-          }
-
-        const getActivityData = async () => {
-            const { data, error } = await apiClient.getUserNutritionData()
-            console.log(data)
+        const getUserData = async () => {
+            const { data, error } = await apiClient.getUserData()
 
             if(error) {setError(error?.data?.message)}
-            if (data.feed) {
-                setActivityData(data.feed)
+            if (data?.feed) {
+                setNutritionData(data.feed.nutritionData)
+                setExerciseData(data.feed.exerciseData)
+                setSleepData(data?.feed?.sleepData?.avgSleepTime)    
             }
-
-            console.log(data.feed)
-            await calculateSleepTimeInHours(data.feed.avgSleepDuration)
-
         }
 
-        getActivityData()
+        getUserData()
 
     }, [])
 
@@ -73,18 +54,17 @@ function Dashboard ({error, setError, invalidForm}) {
             <div className="SummaryStat large gold">
                 <div className="background">
                     <p>Total Exercise Minutes</p>
-                    { activityData ? 
-                          <h1>{activityData.totalDuration}</h1> :
-                          <h1>0</h1>
+                    { exerciseData?.totalDuration ? 
+                          <h1>{exerciseData.totalDuration}</h1> :
+                          <h1>0.00</h1>
                     }
                 </div>
             </div>
             <div className="SummaryStat large purple">
                 <div className="background">
                     <p>Avg Sleep Hours</p>
-                    {
-                        activityData?.avgSleepDuration ? 
-                            <h1>{avgSleepTime} hrs</h1> :
+                    { sleepData ? 
+                            <h1>{sleepData}</h1> :
                             <h1>0</h1>
                     }
                 </div>
@@ -92,9 +72,9 @@ function Dashboard ({error, setError, invalidForm}) {
             <div className="SummaryStat large aqua">
                 <div className="background">
                     <p>Avg Daily Calories</p>
-                    { activityData ? 
-                          <h1>{activityData.avgCalories.slice(0,4)}</h1> :
-                          <h1>0</h1>
+                    { nutritionData?.avgCalories ? 
+                          <h1>{nutritionData.avgCalories.slice(0,4)}</h1> :
+                          <h1>0.00</h1>
                     }
                 </div>
             </div>

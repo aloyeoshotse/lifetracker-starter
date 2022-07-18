@@ -72,10 +72,11 @@ class ApiClient {
         return await this.request({ endpoint: `sleep`, method: `POST`, data: object })
     }
 
-    async getUserNutritionData() {
+    async getUserData() {
         return await this.request({ endpoint: `auth/feed`, method: `GET` })
     }
+
 }
 
-export default new ApiClient('https://lifetracker-aoshotse.herokuapp.com/')
-// export default new ApiClient('http://localhost:3001')
+// export default new ApiClient('https://lifetracker-aoshotse.herokuapp.com/')
+export default new ApiClient('http://localhost:3001')
