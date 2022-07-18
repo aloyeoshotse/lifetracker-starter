@@ -1,11 +1,9 @@
 #logo {
     width: 5%;
     height: auto;
-    margin-left: 1500px;
     zoom: 10%;
     width: 4%;
     height: auto;
-
 }
 
 .links {
@@ -19,6 +17,7 @@
 
 #lt-navbar {
     background-color: #7e9a9a;
+    padding-left: 180px;
 }
 
 .buttons {
