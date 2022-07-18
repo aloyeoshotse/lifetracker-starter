@@ -54,8 +54,6 @@ function NutritionGrid({nutrition}) {
 
 function NutritionCard({ entry }) {
 
-    console.log("img: ", entry?.image_url)
-
     return(
         <div className="nutrition-card">
              { entry?.image_url ?

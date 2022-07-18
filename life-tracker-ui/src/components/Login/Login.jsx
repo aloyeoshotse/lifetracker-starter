@@ -76,10 +76,6 @@ function Login({ error, setError, invalidForm, loggedIn, setLoggedIn }) {
 
       };
 
-      React.useEffect(() => {
-        console.log("error:",error)
-      }, [error])
-    
     return(
         <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">

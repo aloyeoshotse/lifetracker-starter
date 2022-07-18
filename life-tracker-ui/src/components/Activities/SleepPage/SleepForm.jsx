@@ -28,8 +28,6 @@ function SleepForm({invalidForm}) {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        console.log("this works")
-
         navigate('/sleep');
 
         await apiClient.createUserSleepEntry({ 

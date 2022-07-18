@@ -19,7 +19,7 @@ export function getDatabaseURI() {
 }
 
 
-// console.log("process.env".yellow, Object.keys(process.env))
+
 console.log("LifeTracker Config:".red)
 console.log("PORT:".blue, PORT)
 console.log("SECRET_KEY:".blue, SECRET_KEY)

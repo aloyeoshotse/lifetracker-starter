@@ -38,8 +38,6 @@ function NutritionForm({invalidForm}) {
 
         navigate('/nutrition');
 
-        console.log("new: ",newNutrition.imageUrl)
-
         await apiClient.createUserNutritionEntry({ 
         name: newNutrition.name,
         category: newNutrition.category,
