@@ -10,14 +10,13 @@ function Dashboard ({error, setError}) {
     const [nutritionData, setNutritionData] = useState();
     const [exerciseData, setExerciseData] = useState();
     const [sleepData, setSleepData] = useState();
-    const [avgSleepTime, setAvgSleepTime] = useState();
+    const [user, setUser] = useState()
 
     useEffect(() => {
 
 
-        const getUserData = async () => {
+        const getUserActivityData = async () => {
             const { data, error } = await apiClient.getUserData()
-
             if(error) {setError(error?.data?.message)}
             if (data?.feed) {
                 setNutritionData(data.feed.nutritionData)
@@ -26,13 +25,35 @@ function Dashboard ({error, setError}) {
             }
         }
 
-        getUserData()
+        const getUser = async () => {
+            const { data, error } = await apiClient.fetchUserFromToken()
+            if(error) {setError(error?.data?.message)}
+            if (data){setUser(data.user)}
+        }
+
+        getUserActivityData()
+        getUser()
 
     }, [])
 
     return(
         <>
             <div className="dashboard">
+            { user?.firstName ?
+
+                 <div className="Banner" style={{backgroundColor: "#647B7B",
+                                                    height: "100px",
+                                                    marginTop: "1.5cm",
+                                                    display: "flex",
+                                                    justifyContent: "center"}}>
+                    <h1 style={{fontSize: "50px", width: "fit-content", marginTop: "20px"}}>
+                        Welcome, {user.firstName}
+                    </h1>
+                </div>
+
+                :
+                <></>
+            }
                  <div className="header">
                     <div className="title">
                         Overview
