@@ -15,7 +15,10 @@ function ExercisePage({error, setError, invalidForm}) {
         const fetchExerciseData = async () => {
             const { data, error } = await apiClient.listUserExerciseEntries()
     
-            if (data?.exercises) { setExercise(data.exercises) }
+            if (data?.exercises) { 
+                data.exercises = Array.from(data.exercises).reverse();
+                setExercise(data.exercises) 
+            }
     
             if (error) { setError((e) => ({...e, form: null})) }
         }
@@ -23,11 +26,17 @@ function ExercisePage({error, setError, invalidForm}) {
 
     }, [])
 
+    const sortCards = (event) => {
+        let newExercise = Array.from(exercise).reverse();
+        setExercise(newExercise)
+    }
+
     return(
         <div className="exercise">
             <Link to={'/exercise/create'}>
                 <Button className='add-exercise'>Add Exercise</Button>  
             </Link>
+            <Button onClick={sortCards}>Sort</Button>
             <ExerciseGrid exercise={exercise}/>
         </div>
          
@@ -35,8 +44,6 @@ function ExercisePage({error, setError, invalidForm}) {
 }
 
 function ExerciseGrid({exercise}) {
-
-    if (exercise) {exercise = Array.from(exercise).reverse();}
 
     return(
         <div className="exercise-grid">

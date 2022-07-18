@@ -13,12 +13,20 @@ function SleepPage({error, setError, invalidForm}) {
         const fetchSleepData = async () => {
             const { data, error } = await apiClient.listUserSleepEntries()
     
-            if (data?.sleep) { setSleep(data.sleep) }
+            if (data?.sleep) { 
+                data.sleep = Array.from(data.sleep).reverse();
+                setSleep(data.sleep) 
+            }
     
             if (error) { setError((e) => ({...e, form: null})) }
         }
         fetchSleepData()
     }, [])
+
+    const sortCards = (event) => {
+        let newSleep = Array.from(sleep).reverse();
+        setSleep(newSleep)
+    }
 
 
 
@@ -27,6 +35,7 @@ function SleepPage({error, setError, invalidForm}) {
             <Link to={'/sleep/create'}>
                 <Button className='add-sleep'>Track Sleep</Button>
             </Link>
+            <Button onClick={sortCards}>Sort</Button>
             <SleepGrid sleep={sleep}/>
         </div>
     
@@ -34,8 +43,6 @@ function SleepPage({error, setError, invalidForm}) {
 }
 
 function SleepGrid({sleep}) {
-
-    if (sleep) {sleep = Array.from(sleep).reverse();}
 
     return(
         <div className="sleep-grid">

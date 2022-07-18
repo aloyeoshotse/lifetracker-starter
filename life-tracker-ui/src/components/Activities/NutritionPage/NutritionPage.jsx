@@ -15,12 +15,20 @@ function NutritionPage({error, setError, invalidForm}) {
         const fetchNutritionData = async () => {
             const { data, error } = await apiClient.listUserNutritionEntries()
     
-            if (data?.nutrition) { setNutrition(data.nutrition) }
+            if (data?.nutrition) { 
+                data.nutrition = Array.from(data.nutrition).reverse();
+                setNutrition(data.nutrition) 
+            }
     
             if (error) { setError((e) => ({...e, form: null})) }
         }
         fetchNutritionData()
     }, [])
+
+    const sortCards = (event) => {
+        let newNutrition = Array.from(nutrition).reverse();
+        setNutrition(newNutrition)
+    }
 
 
     return(
@@ -28,6 +36,7 @@ function NutritionPage({error, setError, invalidForm}) {
              <Link to={'/nutrition/create'}>
                 <Button className='add-nutrition'>Record Nutrition</Button>
              </Link>
+             <Button onClick={sortCards}>Sort</Button>
              <NutritionGrid nutrition={nutrition}/>
         </div>
 
@@ -37,8 +46,6 @@ function NutritionPage({error, setError, invalidForm}) {
 
 
 function NutritionGrid({nutrition}) {
-
-    if (nutrition) {nutrition = Array.from(nutrition).reverse();}
 
     return(
         <div className="nutrition-grid">
