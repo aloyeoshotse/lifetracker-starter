@@ -4,8 +4,10 @@
 
 Submitted by: **Aloye Oshotse**
 
-Deployed Application: [Lifetracker Deployed Site](lifetracker-ajo.surge.sh)
+Deployed Application: [Lifetracker Deployed Site](https://lifetracker-ajo.surge.sh/)
 
+
+https://www.loom.com/share/1c6c7e1f2ce14a1cbed42cae3dbf91a8
 https://www.loom.com/share/f43ea8b2ab8a416fad1385d916e4cf04
 
 ## Application Features
